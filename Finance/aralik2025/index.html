@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aralık 2025 | Portföy Detayı</title>
+
+  <link rel="stylesheet" href="/style.css" />
+
+  <style>
+    /* Page-specific layout (keeps site look) */
+    .detail-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (max-width: 900px){
+      .detail-grid{ grid-template-columns: 1fr; }
+    }
+
+    .box{
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .holdings{
+      width:100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .holdings th,.holdings td{
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-align:left;
+      color: var(--muted);
+      vertical-align: middle;
+    }
+    .holdings th{ color: var(--muted); font-weight: 700; }
+
+    [data-theme="light"] .holdings th,
+    [data-theme="light"] .holdings td{
+      border-bottom-color: rgba(0,0,0,0.06);
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    [data-theme="light"] .tag{
+      border-color: rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.03);
+    }
+
+    /* Simple “chart” bars (no JS libs) */
+    .bar{
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+      min-width: 120px;
+    }
+    .bar > span{
+      display:block;
+      height: 100%;
+      width: var(--w, 0%);
+      background: rgba(0, 107, 255, 0.85);
+    }
+    [data-theme="light"] .bar{
+      border-color: rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.03);
+    }
+
+    .subnote{ margin-top: 12px; }
+
+    /* Avatar (if not already handled globally) */
+    .logo-avatar{
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      flex: 0 0 auto;
+    }
+    /* Finance dropdown (desktop hover) */
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      margin-top: 10px;
+      left: 0;
+      min-width: 200px;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      display: none;
+      z-index: 999;
+    }
+
+    .nav-dropdown-menu::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -12px;
+      height: 12px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      display: block;
+    }
+
+    .nav-dropdown-item {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.92;
+    }
+
+    .nav-dropdown-item:hover {
+      background: rgba(0, 107, 255, 0.10);
+      opacity: 1;
+    }
+
+    /* Hide hover dropdown on mobile */
+    @media (max-width: 900px) {
+      .nav-dropdown-menu { display: none !important; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark">
+          <img src="/efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
+        </span>
+        <span class="logo-text">Efe Bülbül</span>
+      </div>
+
+      <nav class="nav">
+        <a href="/#hero" class="nav-link">Ana Sayfa</a>
+        <a href="/#about" class="nav-link">Hakkımda</a>
+        <a href="/#skills" class="nav-link">Yetenekler</a>
+        <a href="/#experience" class="nav-link">Deneyim</a>
+        <div class="nav-dropdown">
+          <a href="/#projects" class="nav-link nav-drop-toggle">Projeler</a>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Projeler menüsü">
+            <a href="/#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
+            <a href="/Project/TasklyX/" class="nav-dropdown-item" role="menuitem">TasklyX</a>
+            <a href="/Project/TracklyX/" class="nav-dropdown-item" role="menuitem">TracklyX</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="/#finance" class="nav-link nav-drop-toggle">Finans</a>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
+            <a href="/#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
+            <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
+          </div>
+        </div>
+        <a href="/#contact" class="nav-link">İletişim</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-button" aria-label="Tema değiştir">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <button id="mobile-menu-toggle" class="icon-button hamburger" aria-label="Menü aç/kapat">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav nav-mobile" id="mobile-nav">
+      <a href="/#hero" class="nav-link">Ana Sayfa</a>
+      <a href="/#about" class="nav-link">Hakkımda</a>
+      <a href="/#skills" class="nav-link">Yetenekler</a>
+      <a href="/#experience" class="nav-link">Deneyim</a>
+      <a href="/#projects" class="nav-link">Projeler (Ana Sayfa)</a>
+      <a href="/Project/TasklyX/" class="nav-link">TasklyX</a>
+      <a href="/Project/TracklyX/" class="nav-link">TracklyX</a>
+      <a href="/#finance" class="nav-link">Finans</a>
+      <a href="/Finance/" class="nav-link">Portföy Takibi</a>
+      <a href="/#contact" class="nav-link">İletişim</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="section project-hero">
+    <div class="container reveal">
+      <p class="eyebrow">Portföy Detayı</p>
+      <h1>Aralık 2025 <span class="accent">Portföy</span></h1>
+      <p class="hero-subtitle">
+        Bu sayfa Aralık 2025 dönemine ait portföy dağılımını ve aylık performans özetini içerir.
+        (Kişisel günlük formatındadır.)
+      </p>
+      <p class="footer-secondary" style="margin-top: 10px;">Not: Aşağıdaki oranların hiç biri yatırım tavsiyesi amaçlı değildir. Sayfa kişisel amaçlı olup, hisse senedi paylaşımı yapılmayacaktır.</p>
+
+      <!-- KPI -->
+      <div class="hero-meta" style="margin-top:14px;">
+        <div class="meta-item">
+          <span class="meta-label">Veri Tarihi</span>
+          <span class="meta-value">28/12/2025</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Ay Sonu Değeri</span>
+          <span class="meta-value">139.020 TL</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Aylık Getiri</span>
+          <span class="meta-value">+39,02%</span>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <a href="/Finance/" class="nav-link">← Finans sayfasına dön</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="section section-alt">
+    <div class="container reveal">
+      <div class="section-header">
+        <h2>Dağılım & Hisseler</h2>
+       
+      </div>
+
+      <div class="detail-grid">
+        <!-- Left: Holdings table + bars -->
+        <div class="box">
+          <h3 style="margin:0 0 6px;">Portföy Karşılaştırması</h3>
+          <p class="footer-secondary" style="margin:0 0 10px;">Aylık getiriler;</p>
+
+          <table class="holdings">
+            <thead>
+              <tr>
+                <th>Varlık</th>
+                <th>Oran</th>
+                <th>Görsel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>B1 (portföyüm)</td>
+                <td><span class="tag">%39.02</span></td>
+                <td>
+                  <div class="bar" style="--w:40%"><span></span></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Altın</td>
+                <td><span class="tag">%10,05</span></td>
+                <td>
+                  <div class="bar" style="--w:10%"><span></span></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Gümüş</td>
+                <td><span class="tag">%49,67</span></td>
+                <td>
+                  <div class="bar" style="--w:49%"><span></span></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Faiz</td>
+                <td><span class="tag">%2,333*</span></td>
+                <td>
+                  <div class="bar" style="--w:2%"><span></span></div>
+                </td>
+              </tr>
+
+                    <div class="bar" style="--w:35%"><span></span></div>
+                  </td>
+                </tr>
+              </tr>
+            </tbody>
+          </table>
+
+          
+        </div>
+
+        <!-- Right: Notes + checklist -->
+        <div class="box">
+          <h3 style="margin:0 0 6px;">Aylık Notlar</h3>
+          <ul class="project-tech" style="margin: 8px 0 0;">
+            <li>Strateji: Hisse ağırlıklı / yüksek risk</li>
+            <li>Ay içi karar: (Bulunmamakta)</li>
+            <li>Öğrenim: Yüksek risk = Daha fazla hata</li>
+            <li>Sonraki ay hedefi: Son Boğa Dönemi</li>
+          </ul>
+
+          <div style="margin-top: 14px;">
+            <h3 style="margin:0 0 6px;">Kısa Özet</h3>
+            <p class="footer-secondary" style="margin:0;">
+              Bu ay yüksek riskli performans ve dağılım takibi yapıldı. İçerik yatırım tavsiyesi değildir; kişisel takip amaçlıdır.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-secondary">© 2025–2026 Efe Bülbül — Portföy Günlüğü</p>
+      <p class="footer-secondary">Bu sayfa yatırım tavsiyesi içermez.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

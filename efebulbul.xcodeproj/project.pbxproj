@@ -1,0 +1,96 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXFileReference section */
+		88A593F52EC934FF0085FFB8 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		88A593F62EC935100085FFB8 /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		88A593F72EC935210085FFB8 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		8884E03F2F0118FA00A746BB /* Finance */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Finance;
+			sourceTree = "<group>";
+		};
+		8884E1822F01664400A746BB /* Project */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Project;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXGroup section */
+		88A593ED2EC934B80085FFB8 = {
+			isa = PBXGroup;
+			children = (
+				8884E1822F01664400A746BB /* Project */,
+				8884E03F2F0118FA00A746BB /* Finance */,
+				88A593F52EC934FF0085FFB8 /* index.html */,
+				88A593F62EC935100085FFB8 /* style.css */,
+				88A593F72EC935210085FFB8 /* script.js */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		88A593EE2EC934B80085FFB8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1640;
+			};
+			buildConfigurationList = 88A593F12EC934B80085FFB8 /* Build configuration list for PBXProject "efebulbul" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88A593ED2EC934B80085FFB8;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		88A593F22EC934B80085FFB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 28R4D256F2;
+			};
+			name = Debug;
+		};
+		88A593F32EC934B80085FFB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 28R4D256F2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88A593F12EC934B80085FFB8 /* Build configuration list for PBXProject "efebulbul" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88A593F22EC934B80085FFB8 /* Debug */,
+				88A593F32EC934B80085FFB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88A593EE2EC934B80085FFB8 /* Project object */;
+}

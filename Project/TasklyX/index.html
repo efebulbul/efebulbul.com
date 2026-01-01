@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TasklyX | Efe Bülbül</title>
+  <meta name="description" content="TasklyX — Akıllı görev yöneticisi. Özellikler, ekranlar ve teknik detaylar." />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+  /* Finance dropdown (desktop hover) */
+  .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    left: 0;
+    min-width: 200px;
+    padding: 8px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    display: none;
+    z-index: 999;
+  }
+
+  .nav-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -12px;
+    height: 12px;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-item {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 12px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.92;
+  }
+
+  .nav-dropdown-item:hover {
+    background: rgba(0, 107, 255, 0.10);
+    opacity: 1;
+  }
+
+  /* Hide hover dropdown on mobile */
+  @media (max-width: 900px) {
+    .nav-dropdown-menu { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header (index ile uyumlu) -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark">
+          <img src="/efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
+        </span>
+        <span class="logo-text">Efe Bülbül</span>
+      </div>
+
+      <nav class="nav">
+          <a href="/#hero" class="nav-link">Ana Sayfa</a>
+          <a href="/#about" class="nav-link">Hakkımda</a>
+          <a href="/#skills" class="nav-link">Yetenekler</a>
+          <a href="/#experience" class="nav-link">Deneyim</a>
+          <div class="nav-dropdown">
+            <a href="/#Projects" class="nav-link nav-drop-toggle">Projeler</a>
+            <div class="nav-dropdown-menu" role="menu" aria-label="Projeler menüsü">
+              <a href="/#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
+              <a href="/Project/TasklyX/" class="nav-dropdown-item" role="menuitem">TasklyX</a>
+              <a href="/Project/TracklyX/" class="nav-dropdown-item" role="menuitem">TracklyX</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="/#finance" class="nav-link nav-drop-toggle">Finans</a>
+            <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
+              <a href="/#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
+              <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
+            </div>
+          </div>
+          <a href="/#contact" class="nav-link">İletişim</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-button" aria-label="Tema değiştir">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <button id="mobile-menu-toggle" class="icon-button hamburger" aria-label="Menü aç/kapat">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav nav-mobile" id="mobile-nav">
+      <a href="/#hero" class="nav-link">Ana Sayfa</a>
+      <a href="/#about" class="nav-link">Hakkımda</a>
+      <a href="/#skills" class="nav-link">Yetenekler</a>
+      <a href="/#experience" class="nav-link">Deneyim</a>
+      <a href="/#Projects" class="nav-link">Projeler (Ana Sayfa)</a>
+      <a href="/Project/TasklyX/" class="nav-link active">TasklyX</a>
+      <a href="/Project/TracklyX/" class="nav-link">TracklyX</a>
+      <a href="/#finance" class="nav-link">Finans</a>
+      <a href="/Finance/" class="nav-link">Portföy Takibi</a>
+      <a href="/#contact" class="nav-link">İletişim</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section hero project-hero">
+      <div class="container reveal">
+        <p class="eyebrow">iOS • App Store</p>
+        <h1>TasklyX – Akıllı Görev Yöneticisi</h1>
+        <p class="hero-subtitle">
+          Minimal, hızlı ve “hatırlatıcı odaklı” bir to-do deneyimi. Kategoriler, emojiler, tema desteği ve bulut senkronizasyonuyla.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="https://apps.apple.com/tr/app/tasklyx/id6754032288?l=tr" target="_blank" rel="noreferrer">App Store</a>
+          <a class="btn ghost" href="https://github.com/efebulbul/Taskly" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn ghost" href="/#projects">← Projelere Dön</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-header">
+          <h2>Öne Çıkanlar</h2>
+          <p>TasklyX’i özetleyen ana özellikler.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-col">
+            <h3>Ürün</h3>
+            <ul class="skill-list">
+              <li><span>Kategori + Emoji ile görev düzeni</span><span class="skill-level">✔</span></li>
+              <li><span>Hatırlatıcılar (yaklaşan + saatinde)</span><span class="skill-level">✔</span></li>
+              <li><span>Dark/Light/System tema</span><span class="skill-level">✔</span></li>
+              <li><span>Minimal & hızlı UI</span><span class="skill-level">✔</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-col">
+            <h3>Teknik</h3>
+            <ul class="skill-list">
+              <li><span>Swift + UIKit</span><span class="skill-level">✔</span></li>
+              <li><span>Firebase Auth & Firestore</span><span class="skill-level">✔</span></li>
+              <li><span>Local Notifications</span><span class="skill-level">✔</span></li>
+              <li><span>Localizable (TR/EN/DE/AR)</span><span class="skill-level">✔</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-col">
+            <h3>Planlanan</h3>
+            <ul class="skill-list">
+              <li><span>Premium özellik kurguları</span><span class="skill-level">…</span></li>
+              <li><span>Analytics / crash reporting</span><span class="skill-level">…</span></li>
+              <li><span>Yeni widget / kısa yollar</span><span class="skill-level">…</span></li>
+              <li><span>Gelişmiş filtreler</span><span class="skill-level">…</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+          <section class="section">
+            <div class="container reveal">
+              <div class="section-header">
+                <h2>Mini Demo</h2>
+                <p>
+                  TasklyX'i tarayıcı içinde, bir telefon ekranı gibi gezebilirsin.
+                  (Şimdilik görseller placeholder.)
+                </p>
+              </div>
+        <div class="phone-demo" data-phone-demo>
+          <!-- Telefon Çerçevesi -->
+          <div class="phone-frame" aria-label="TasklyX demo">
+            <div class="phone-notch" aria-hidden="true"></div>
+
+            <div class="phone-screen">
+              <img
+                class="phone-screen-img"
+                data-demo-img
+    
+                alt="TasklyX ekran görüntüsü"
+              />
+
+              <!-- Görsel yoksa gösterilecek alan -->
+              <div class="phone-screen-missing" aria-hidden="true">
+                <div class="missing-title">Ekran görüntüsü ekle</div>
+                <div class="missing-subtitle">assets/tasklyx/01.png</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sağ Panel -->
+          <div class="phone-demo-panel">
+            <div class="phone-demo-title">TasklyX akışı</div>
+            <div class="phone-demo-subtitle">Ana Sayfa</div>
+            <div class="phone-demo-desc" data-demo-desc>
+              Ana sayfada görevlerini kategori + emoji ile görür, tamamlandı durumunu yönetir ve hızlıca düzenlersin.
+            </div>
+            <div class="phone-demo-subtitle">Yeni Görev</div>
+            <div class="phone-demo-desc" data-demo-desc>
+                Yeni görev ekleme ekranında başlık, kategori/emoji, tarih-saat ve hatırlatıcı seçeneklerini belirleyip kaydedersin.
+            </div>
+            <div class="phone-demo-subtitle">Ayarlar</div>
+            <div class="phone-demo-desc" data-demo-desc>
+                Ayarlar bölümünde tema seçimi, dil ayarları, bildirim izinleri ve uygulamaya dair genel tercihleri kişiselleştirebilirsin.            </div>
+
+            
+
+            <div class="phone-demo-controls">
+              <button class="btn ghost" type="button" data-demo-prev>←</button>
+              <button class="btn primary" type="button" data-demo-next>→</button>
+            </div>
+
+            <div class="phone-demo-dots">
+              <button class="dot is-active" data-demo-dot="0"></button>
+              <button class="dot" data-demo-dot="1"></button>
+              <button class="dot" data-demo-dot="2"></button>
+            </div>
+          </div>
+
+          <!-- Demo verisi (JS bunu okuyacak) -->
+          <script type="application/json" data-demo-data>
+{
+  "items": [
+    {
+      "src": "sim1.png",
+      "caption": "Ana Sayfa",
+      "desc": "Ana sayfada görevlerini kategori + emoji ile görür, tamamlandı durumunu yönetir ve hızlıca düzenlersin."
+    },
+    {
+      "src": "sim2.png",
+      "caption": "Yeni Görev",
+      "desc": "Yeni görev ekleme ekranında başlık, kategori/emoji, tarih-saat ve hatırlatıcı seçeneklerini belirleyip kaydedersin."
+    },
+    {
+      "src": "sim3.png",
+      "caption": "Ayarlar",
+      "desc": "Ayarlar ekranında tema (dark/light/system), dil ve bildirim izinleri gibi seçenekleri yönetirsin."
+    }
+  ]
+}
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container reveal">
+        <div class="section-header">
+          <h2>Ekranlar</h2>
+          <p>Buraya uygulama ekran görüntülerini / açıklamalarını koyabilirsin.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-chip">Ekran</div>
+            <h3>Görev Listesi</h3>
+            <p>Görevleri kategori, emoji ve durumuna göre hızlıca yönet.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-chip">Ekran</div>
+            <h3>Yeni Görev</h3>
+            <p>Hatırlatıcı, kategori ve detayları gir; kayıt akışı temiz ve hızlı.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-chip">Ekran</div>
+            <h3>Ayarlar</h3>
+            <p>Tema, dil, bildirim izinleri ve “Hakkında” alanı.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-header">
+          <h2>Teknik Notlar</h2>
+          <p>TasklyX, “tek seferde mükemmel” yaklaşımı yerine iteratif geliştirme modeliyle ilerleyen bir proje olarak tasarlandı. Özellikler kademeli olarak eklendi ve her aşamada kullanıcı deneyimi ile kod kalitesi ön planda tutuldu. Mevcut mimari; premium özellikler, widget desteği, analytics ve crash reporting entegrasyonları ile offline cache senaryoları gibi gelecekteki geliştirmelere uyum sağlayacak şekilde genişletilebilir bir yapı üzerine kuruldu.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p><strong>Mimari:</strong> Modüler dosya yapısı, okunabilir UIKit akışı, reusable component yaklaşımı.</p>
+            <p><strong>Bildirimler:</strong> Görev için hem “yarım saat kala” hem “tam saatinde” bildirim senaryosu.</p>
+            <p><strong>Bulut:</strong> Firebase ile kullanıcı bazlı veri senkronizasyonu ve güvenli auth akışı.</p>
+          </div>
+
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <span class="highlight-label">PLATFORM</span>
+              <p class="highlight-value">iOS</p>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-label">KATEGORİ</span>
+              <p class="highlight-value">Üretkenlik/</p>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-label">Durum</span>
+              <p class="highlight-value">Yayında / geliştiriliyor</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>© <span id="year"></span> Efe Bülbül. Tüm hakları saklıdır.</p>
+      <p class="footer-secondary">Bu sayfa TasklyX için özel bir case study alanıdır.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

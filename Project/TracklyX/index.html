@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TracklyX | Efe Bülbül</title>
+  <meta name="description" content="TracklyX — Koşu & aktivite takibi. Harita, istatistikler ve teknik detaylar." />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    /* Finance dropdown (desktop hover) */
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      margin-top: 10px;
+      left: 0;
+      min-width: 200px;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      display: none;
+      z-index: 999;
+    }
+
+    .nav-dropdown-menu::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -12px;
+      height: 12px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      display: block;
+    }
+
+    .nav-dropdown-item {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.92;
+    }
+
+    .nav-dropdown-item:hover {
+      background: rgba(0, 107, 255, 0.10);
+      opacity: 1;
+    }
+
+    /* Hide hover dropdown on mobile */
+    @media (max-width: 900px) {
+      .nav-dropdown-menu { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark">
+          <img src="/efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
+        </span>
+        <span class="logo-text">Efe Bülbül</span>
+      </div>
+
+      <nav class="nav">
+        <a href="/#hero" class="nav-link">Ana Sayfa</a>
+        <a href="/#about" class="nav-link">Hakkımda</a>
+        <a href="/#skills" class="nav-link">Yetenekler</a>
+        <a href="/#experience" class="nav-link">Deneyim</a>
+        <div class="nav-dropdown">
+          <a href="/#projects" class="nav-link nav-drop-toggle">Projeler</a>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Projeler menüsü">
+            <a href="/#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
+            <a href="/Project/TasklyX/" class="nav-dropdown-item" role="menuitem">TasklyX</a>
+            <a href="/Project/TracklyX/" class="nav-dropdown-item" role="menuitem">TracklyX</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/#finance" class="nav-link nav-drop-toggle">Finans</a>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
+            <a href="/#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
+            <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
+          </div>
+        </div>
+        <a href="/#contact" class="nav-link">İletişim</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-button" aria-label="Tema değiştir">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <button id="mobile-menu-toggle" class="icon-button hamburger" aria-label="Menü aç/kapat">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav nav-mobile" id="mobile-nav">
+      <a href="/#hero" class="nav-link">Ana Sayfa</a>
+      <a href="/#about" class="nav-link">Hakkımda</a>
+      <a href="/#skills" class="nav-link">Yetenekler</a>
+      <a href="/#experience" class="nav-link">Deneyim</a>
+      <a href="/#projects" class="nav-link">Projeler (Ana Sayfa)</a>
+      <a href="/Project/TasklyX/" class="nav-link">TasklyX</a>
+      <a href="/Project/TracklyX/" class="nav-link">TracklyX</a>
+      <a href="/#finance" class="nav-link">Finans</a>
+      <a href="/Finance/" class="nav-link">Portföy Takibi</a>
+      <a href="#contact" class="nav-link">İletişim</a>
+    </nav>
+
+  </header>
+
+  <main>
+    <section class="section hero project-hero">
+      <div class="container reveal">
+        <p class="eyebrow">iOS • Devam</p>
+        <h1>TracklyX – Koşu & Aktivite Takibi</h1>
+        <p class="hero-subtitle">
+          MapKit ile rota çizimi, canlı istatistikler, tempo/mesafe/kalori hesapları ve koşu geçmişi.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Case Study (yakında)</a>
+          <a class="btn ghost" href="/#projects">← Projelere Dön</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-header">
+          <h2>Öne Çıkanlar</h2>
+          <p>TracklyX’in ana akışı ve yetenekleri.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-col">
+            <h3>Ürün</h3>
+            <ul class="skill-list">
+              <li><span>Canlı koşu ekranı</span><span class="skill-level">✔</span></li>
+              <li><span>Harita üzerinde rota</span><span class="skill-level">✔</span></li>
+              <li><span>Tempo / Mesafe / Süre</span><span class="skill-level">✔</span></li>
+              <li><span>Koşu geçmişi</span><span class="skill-level">✔</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-col">
+            <h3>Teknik</h3>
+            <ul class="skill-list">
+              <li><span>Swift + UIKit</span><span class="skill-level">✔</span></li>
+              <li><span>MapKit + CoreLocation</span><span class="skill-level">✔</span></li>
+              <li><span>İstatistik ekranı / grafikler</span><span class="skill-level">✔</span></li>
+              <li><span>Veri modeli / store yapısı</span><span class="skill-level">✔</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-col">
+            <h3>Planlanan</h3>
+            <ul class="skill-list">
+              <li><span>Firebase senkronizasyon</span><span class="skill-level">…</span></li>
+              <li><span>Hava durumu</span><span class="skill-level">…</span></li>
+              <li><span>AI koşu koçu / özet</span><span class="skill-level">…</span></li>
+              <li><span>Apple Watch mini akış</span><span class="skill-level">…</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-header">
+          <h2>Mini Demo</h2>
+          <p>
+            TracklyX’i tarayıcı içinde, bir telefon ekranı gibi gezebilirsin.
+            (Şimdilik görseller placeholder.)
+          </p>
+        </div>
+
+        <div class="phone-demo" data-phone-demo>
+          <!-- Telefon Çerçevesi -->
+          <div class="phone-frame" aria-label="TracklyX demo">
+            <div class="phone-notch" aria-hidden="true"></div>
+
+            <div class="phone-screen">
+              <img
+                class="phone-screen-img"
+                data-demo-img
+                src="yakinda.jpg"
+                alt="TracklyX ekran görüntüsü"
+              />
+
+              <!-- Görsel yoksa gösterilecek alan -->
+              <div class="phone-screen-missing" aria-hidden="true">
+                <div class="missing-title">Ekran görüntüsü ekle</div>
+                <div class="missing-subtitle">yakind.jpg</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sağ Panel -->
+          <div class="phone-demo-panel">
+            <div class="phone-demo-title">TracklyX akışı</div>
+            <div class="phone-demo-subtitle" data-demo-caption>Canlı Koşu</div>
+            <div class="phone-demo-desc" data-demo-desc>
+             Yakında...
+            </div>
+
+            <div class="phone-demo-controls">
+              <button class="btn ghost" type="button" data-demo-prev>←</button>
+              <button class="btn primary" type="button" data-demo-next>→</button>
+            </div>
+
+            <div class="phone-demo-dots">
+              <button class="dot is-active" data-demo-dot="0"></button>
+              <button class="dot" data-demo-dot="1"></button>
+              <button class="dot" data-demo-dot="2"></button>
+              <button class="dot" data-demo-dot="3"></button>
+            </div>
+          </div>
+
+          <!-- Demo verisi (JS bunu okuyacak) -->
+          <script type="application/json" data-demo-data>
+{
+  "items": [
+    {
+      "src": "yakinda.jpg",
+      "caption": "Canlı Koşu",
+      "desc": "Canlı koşu ekranında süre, mesafe ve tempo gibi metrikleri anlık takip eder, pause/resume ile kontrol edersin."
+    },
+    {
+      "src": "yakinda.jpg",
+      "caption": "Harita / Rota",
+      "desc": "MapKit üzerinde anlık rotayı çizerek koşunun güzergâhını görür, lokasyon güncellemeleriyle akışı izlersin."
+    },
+    {
+      "src": "yakinda.jpg",
+      "caption": "History",
+      "desc": "Geçmiş koşularını listeler, özet metrikleri görür ve seçtiğin koşunun detaylarına inersin."
+    },
+    {
+      "src": "yakinda.jpg,
+      "caption": "Statistics",
+      "desc": "Hafta/ay/yıl periyotlarında toplam mesafe, süre, kalori ve tempo gibi metrikleri grafiklerle analiz edersin."
+    }
+  ]
+}
+          </script>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container reveal">
+        <div class="section-header">
+          <h2>Ekranlar</h2>
+          <p>Burada “Run”, “History”, “Statistics” gibi ekranları tek tek anlatabilirsin.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-chip">Ekran</div>
+            <h3>Canlı Koşu</h3>
+            <p>GPS ile anlık takip, pause/resume, canlı metrikler.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-chip">Ekran</div>
+            <h3>History</h3>
+            <p>Koşu kayıtları, özet metrikler, detay sayfası.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-chip">Ekran</div>
+            <h3>Statistics</h3>
+            <p>Hafta/ay/yıl bazında toplamlar ve grafiklerle analiz.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-chip">Ekran</div>
+            <h3>Ayarlar</h3>
+            <p>Tema, dil, bildirim izinleri ve "Hakkında" alanı</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-header">
+          <h2>Teknik Notlar</h2>
+          <p>TracklyX, gerçek zamanlı koşu takibi senaryolarında doğruluk–pil tüketimi dengesini koruyacak şekilde tasarlandı. Konum güncellemelerinde CoreLocation ayarları (accuracy, distance filter ve update sıklığı) koşu sırasında stabil bir rota çizimi sunarken, arayüz tarafında metriklerin (süre, mesafe, tempo vb.) anlık ve akıcı güncellenmesi hedeflendi. Harita ekranında MapKit ile rota çizimi ve koşu boyunca toplanan noktaların yönetimi sade bir veri akışıyla ele alındı. History ve Statistics tarafında ise koşu kayıtları periyotlara (hafta/ay/yıl) göre agregasyon yapılarak toplam mesafe, süre, kalori ve tempo gibi metrikler grafiklerle okunabilir hâle getirildi. Mevcut yapı, ileride Firebase senkronizasyonu, hava durumu entegrasyonu, AI ile koşu özeti/koçluğu ve Apple Watch mini akışı gibi özellikleri ekleyebilmek için genişletilebilir bir mimari anlayışıyla kurgulandı.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p><strong>Konum yönetimi:</strong> Tracking sırasında accuracy, pil tüketimi ve update sıklığı dengesi.</p>
+            <p><strong>İstatistik:</strong> Periyotlara göre (week/month/year) agregasyon ve UI güncelleme akışı.</p>
+            <p><strong>Genişleme:</strong> Firebase + AI + Watch ile “ürünleşme” planı.</p>
+          </div>
+
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <span class="highlight-label">Platform</span>
+              <p class="highlight-value">iOS</p>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-label">Kategori</span>
+              <p class="highlight-value">Fitness / Tracking</p>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-label">Durum</span>
+              <p class="highlight-value">Geliştiriliyor</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>© <span id="year"></span> Efe Bülbül. Tüm hakları saklıdır.</p>
+      <p class="footer-secondary">Bu sayfa TracklyX için özel bir case study alanıdır.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

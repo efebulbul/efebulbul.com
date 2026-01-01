@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finans | Portföy Günlüğü</title>
+
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Sadece tablo ve küçük finans bileşenleri için minik ek -->
+  <style>
+    .logo-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      flex: 0 0 auto;
+    }
+    .finance-kpis { margin-top: 14px; }
+
+    .finance-table-wrap {
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .finance-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .finance-table thead th {
+      text-align: left;
+      padding: 12px 14px;
+      color: var(--muted);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent);
+    }
+
+    .finance-table tbody td {
+      padding: 12px 14px;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    [data-theme="light"] .finance-table tbody td {
+      border-bottom-color: rgba(0,0,0,0.05);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    [data-theme="light"] .pill {
+      border-color: rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.03);
+      color: var(--text);
+    }
+
+    .pill.positive { color: #37d67a; }
+    .pill.negative { color: #ff6b6b; }
+
+    .finance-month-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .finance-month-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    /* Finance dropdown (desktop hover) */
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      margin-top: 10px;
+      left: 0;
+      min-width: 200px;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      display: none;
+      z-index: 999;
+    }
+
+    .nav-dropdown-menu::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -12px;
+      height: 12px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      display: block;
+    }
+
+    .nav-dropdown-item {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.92;
+    }
+
+    .nav-dropdown-item:hover {
+      background: rgba(0, 107, 255, 0.10);
+      opacity: 1;
+    }
+
+    /* Hide hover dropdown on mobile; mobile has separate links */
+    @media (max-width: 900px) {
+      .nav-dropdown-menu { display: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark">
+          <img src="/efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
+        </span>
+        <span class="logo-text">Efe Bülbül</span>
+      </div>
+
+      <nav class="nav">
+        <a href="/#hero" class="nav-link">Ana Sayfa</a>
+        <a href="/#about" class="nav-link">Hakkımda</a>
+        <a href="/#skills" class="nav-link">Yetenekler</a>
+        <a href="/#experience" class="nav-link">Deneyim</a>
+
+        <div class="nav-dropdown">
+          <a href="/#projects" class="nav-link nav-drop-toggle">Projeler</a>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Projeler menüsü">
+            <a href="/#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
+            <a href="/Project/TasklyX/" class="nav-dropdown-item" role="menuitem">TasklyX</a>
+            <a href="/Project/TracklyX/" class="nav-dropdown-item" role="menuitem">TracklyX</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="/#finance" class="nav-link nav-drop-toggle">Finans</a>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
+            <a href="/#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
+            <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
+          </div>
+        </div>
+
+        <a href="/#contact" class="nav-link">İletişim</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-button" aria-label="Tema değiştir">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <button id="mobile-menu-toggle" class="icon-button hamburger" aria-label="Menü aç/kapat">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav nav-mobile" id="mobile-nav">
+      <a href="/#hero" class="nav-link">Ana Sayfa</a>
+      <a href="/#about" class="nav-link">Hakkımda</a>
+      <a href="/#skills" class="nav-link">Yetenekler</a>
+      <a href="/#experience" class="nav-link">Deneyim</a>
+      <a href="/#projects" class="nav-link">Projeler (Ana Sayfa)</a>
+      <a href="/Project/TasklyX/" class="nav-link">TasklyX</a>
+      <a href="Project/TracklyX/" class="nav-link">TracklyX</a>
+      <a href="/#finance" class="nav-link">Finans</a>
+      <a href="/Finance/" class="nav-link">Portföy Takibi</a>
+      <a href="/#contact" class="nav-link">İletişim</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="section project-hero">
+    <div class="container reveal">
+      <p class="eyebrow">Kişisel Günlük</p>
+      <h1>100.000 TL ile <span class="accent">Portföy Takibi</span></h1>
+      <p class="hero-subtitle">
+        Sermaye piyasalarıyla ilgileniyor; portföy dağılımı, risk yönetimi ve performans ölçümü üzerine veri odaklı takipler yapıyorum.
+        Bu süreç, yazılım geliştirmede benimsediğim analitik düşünme ve ölçülebilir karar alma yaklaşımını destekliyor.
+      </p>
+      <p class="footer-secondary" style="margin-top: 10px;">
+        Not: Buradaki içerikler yatırım tavsiyesi değildir.
+      </p>
+
+      <!-- KPI (mevcut hero-meta / meta-item stilini kullanıyor) -->
+      <div class="hero-meta finance-kpis">
+        <div class="meta-item">
+          <span class="meta-label">Başlangıç</span>
+          <span class="meta-value">100.000 TL</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Güncel Değer</span>
+          <span class="meta-value">139.020 TL</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Toplam Getiri</span>
+          <span class="meta-value">+39.02%</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Aylık Kayıtlar -->
+  <section class="section section-alt">
+    <div class="container reveal">
+      <div class="section-header">
+        <h2>Aylık Kayıtlar</h2>
+        <p>Her ayın 1’inde güncel portföy ve aylık performans özeti.</p>
+      </div>
+
+      <div class="finance-table-wrap">
+        <table class="finance-table">
+          <thead>
+            <tr>
+              <th>Ay</th>
+              <th>Ay Sonu Değeri</th>
+              <th>Aylık Getiri</th>
+              <th>Not</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aralık 2025</td>
+              <td>139.020 TL</td>
+              <td><span class="pill positive">+39,02%</span></td>
+              <td>Yüksek risk, hisse senedi ağırlıklı. (Detay sayfası mevcut)</td>
+            </tr>
+            <tr>
+              <td>Ocak 2026</td>
+              <td>Güncellenmedi</td>
+              <td><span class="pill positive">Güncellenmedi</span></td>
+              <td>Dağılım optimize edildi.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Ay detay kartları (mevcut project-card stilini kullanıyor) -->
+      <div class="finance-month-grid">
+        <div class="project-card">
+          <div class="project-chip">Aralık 2025</div>
+          <h3>Dağılım & Performans</h3>
+          <p>Ay sonu portföy durumu ve genel performans özeti.</p>
+          <ul class="project-tech">
+            <li>Veri tarihi: 28/12</li>
+            <li>Durum: Güncel</li>
+            <li>Hisse Senedi Ağırlıklı</li>
+          </ul>
+          <div class="project-links">
+            <a href="/Finance/aralik2025/" class="nav-link">Detay</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-chip">Ocak 2026</div>
+          <h3>Beklenen Aylık Kayıt</h3>
+          <p>Bu ayın portföy verileri henüz eklenmedi.</p>
+          <ul class="project-tech">
+            <li>Durum: Yakında</li>
+            <li>Not: Ay sonu sonrası eklenecek</li>
+          </ul>
+          <div class="project-links">
+            <a href="#" aria-disabled="true">Veri henüz yok</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-secondary">© 2026 Efe Bülbül — Portföy Günlüğü</p>
+      <p class="footer-secondary">Bu sayfa yatırım tavsiyesi içermez.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

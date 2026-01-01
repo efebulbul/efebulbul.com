@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Efe Bülbül | iOS Developer & MIS Student</title>
+    <meta name="description" content="Efe Bülbül - iOS Developer, Management Information Systems student. CV, projeler ve iletişim." />
+    <link rel="stylesheet" href="style.css" />
+<style>
+  /* Finance dropdown (desktop hover) */
+  .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    left: 0;
+    min-width: 200px;
+    padding: 8px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    display: none;
+    z-index: 999;
+  }
+
+  .nav-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -12px;
+    height: 12px;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-item {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 12px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.92;
+  }
+
+  .nav-dropdown-item:hover {
+    background: rgba(0, 107, 255, 0.10);
+    opacity: 1;
+  }
+
+  /* Hide hover dropdown on mobile; mobile has separate links */
+  @media (max-width: 900px) {
+    .nav-dropdown-menu { display: none !important; }
+  }
+</style>
+</head>
+<body>
+    <!-- Tech logos arka plan layer -->
+    <div class="tech-particles" aria-hidden="true">
+        <img src="swift.png" alt="" class="tech-icon ti-1" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-2" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-3" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-4" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-5" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-6" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-7" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-8" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-9" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-10" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-11" loading="lazy">
+        <img src="swift.png" alt="" class="tech-icon ti-12" loading="lazy">
+        <img src="html.png" alt="" class="tech-icon hi-1" loading="lazy">
+        <img src="html.png" alt="" class="tech-icon hi-2" loading="lazy">
+        <img src="html.png" alt="" class="tech-icon hi-3" loading="lazy">
+        <img src="html.png" alt="" class="tech-icon hi-4" loading="lazy">
+        <img src="html.png" alt="" class="tech-icon hi-5" loading="lazy">
+        <img src="html.png" alt="" class="tech-icon hi-6" loading="lazy">
+        <img src="html.png" alt="" class="tech-icon hi-7" loading="lazy">
+        <img src="html.png" alt="" class="tech-icon hi-8" loading="lazy">
+    </div>
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-mark">
+                    <img src="efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
+                </span>
+                <span class="logo-text">Efe Bülbül</span>
+            </div>
+
+            <nav class="nav">
+                <a href="#hero" class="nav-link">Ana Sayfa</a>
+                <a href="#about" class="nav-link">Hakkımda</a>
+                <a href="#skills" class="nav-link">Yetenekler</a>
+                <a href="#experience" class="nav-link">Deneyim</a>
+                <div class="nav-dropdown">
+                  <a href="#projects" class="nav-link nav-drop-toggle">Projeler</a>
+                  <div class="nav-dropdown-menu" role="menu" aria-label="Projeler menüsü">
+                    <a href="#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
+                    <a href="/Project/TasklyX/" class="nav-dropdown-item" role="menuitem">TasklyX</a>
+                    <a href="/Project/TracklyX/" class="nav-dropdown-item" role="menuitem">TracklyX</a>
+                  </div>
+                </div>
+
+                <div class="nav-dropdown">
+                  <a href="#finance" class="nav-link nav-drop-toggle">Finans</a>
+                  <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
+                    <a href="#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
+                    <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
+                  </div>
+                </div>
+                <a href="#contact" class="nav-link">İletişim</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-button" aria-label="Tema değiştir">
+                    <span class="icon-moon">🌙</span>
+                    <span class="icon-sun">☀️</span>
+                </button>
+                <button id="mobile-menu-toggle" class="icon-button hamburger" aria-label="Menü aç/kapat">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="nav nav-mobile" id="mobile-nav">
+            <a href="#hero" class="nav-link">Ana Sayfa</a>
+            <a href="#about" class="nav-link">Hakkımda</a>
+            <a href="#skills" class="nav-link">Yetenekler</a>
+            <a href="#experience" class="nav-link">Deneyim</a>
+            <a href="#projects" class="nav-link">Projeler (Ana Sayfa)</a>
+            <a href="/Project/TasklyX/" class="nav-link">TasklyX</a>
+            <a href="/Project/TracklyX/" class="nav-link">TracklyX</a>
+            <a href="#finance" class="nav-link">Finans</a>
+            <a href="/Finance/" class="nav-link">Portföy Takibi</a>
+            <a href="#contact" class="nav-link">İletişim</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="section hero">
+            <div class="container hero-grid reveal">
+                <div class="hero-text">
+                    <p class="eyebrow">iOS Developer • MIS Student</p>
+                    <h1>
+                        Merhaba, ben <span class="accent">Efe Bülbül</span>.<br />
+                        Ürün odaklı, temiz kod seven bir geliştiriciyim.
+                    </h1>
+                    <p class="hero-subtitle">
+                        İstanbul Topkapı Üniversitesi Yönetim Bilişim Sistemleri öğrencisiyim.
+                        iOS geliştirme, yapay zekâ ve yazılım projeleriyle gerçek problemler çözen ürünler
+                        üretmeye odaklanıyorum.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn primary">Benimle İletişime Geç</a>
+                        <a href="#projects" class="btn ghost">Projelerimi Gör</a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Lokasyon</span>
+                            <span class="meta-value">İstanbul, Türkiye</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Rol</span>
+                            <span class="meta-value">iOS Developer & MIS Student</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Odak</span>
+                            <span class="meta-value">Mobil Uygulamalar · AI · Frontend</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-card reveal">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <div class="avatar-circle">
+                                <img src="efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
+                            </div>
+                        </div>
+                        <h2>Efe Bülbül</h2>
+                        <p class="profile-title">iOS Developer • MIS Student</p>
+                        <p class="profile-summary">
+                            Swift, UIKit ve modern mobil deneyimler üzerine çalışan; performans, tasarım ve
+                            kullanıcı odaklılık konusunda titiz bir geliştiriciyim.
+                        </p>
+                        <div class="profile-tags">
+                            <span class="tag">Swift</span>
+                            <span class="tag">UIKit</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Frontend</span>
+                        </div>
+                        <div class="profile-links">
+                            <a href="mailto:info@efebulbul.com" class="profile-link">Email</a>
+                            <a href="https://www.linkedin.com/in/efe-bulbul-562464237/" target="_blank" class="profile-link">LinkedIn</a>
+                            <a href="https://github.com/efebulbul" target="_blank" class="profile-link">GitHub</a>
+                            <a href="Efe-Bulbul-CV.pdf" target="_blank" class="profile-link">CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>Hakkımda</h2>
+                    <p>Profesyonel olarak kimim, nasıl çalışırım?</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            Ben Efe, İstanbul Topkapı Üniversitesi’nde Yönetim Bilişim Sistemleri okuyan ve
+                            ağırlıklı olarak <strong>iOS geliştirme</strong> alanında ilerleyen bir yazılımcıyım.
+                        </p>
+                        <p>
+                            Kullanıcı deneyimini merkeze alan, performans ve okunabilir kodu önemseyen bir
+                            geliştiriciyim. Uygulamalarımda; temiz mimari yaklaşımlar, yeniden kullanılabilir
+                            komponentler ve ölçeklenebilir altyapılar kurmaya odaklanıyorum.
+                        </p>
+                        <p>
+                            Uzun vadede hedefim; mobil geliştirme, yapay zekâ ve veri odaklı sistemleri birleştirerek
+                            hem Türkiye’de hem de global ölçekte katma değer üreten ürünler geliştirmek.
+                        </p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <span class="highlight-label">Alanlar</span>
+                            <p class="highlight-value">iOS Development, UI/UX, REST API, Firebase, Frontend, Piyasalar & Portföy Takibi</p>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-label">Güçlü Yönler</span>
+                            <p class="highlight-value">Problem çözme, detaycılık, sorumluluk alma, sürekli öğrenme</p>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-label">Diller</span>
+                            <p class="highlight-value">Türkçe (Ana dil), İngilizce (B2)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section section-alt">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>Yetenekler</h2>
+                    <p>Teknik becerilerim ve güçlü olduğum alanlar.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-col">
+                        <h3>Mobil Geliştirme</h3>
+                        <ul class="skill-list">
+                            <li><span>Swift, UIKit</span><span class="skill-level">Orta</span></li>
+                            <li><span>Auto Layout, Programmatic UI</span><span class="skill-level">Orta</span></li>
+                            <li><span>MVVM, Delegate, NotificationCenter</span><span class="skill-level">Orta</span></li>
+                            <li><span>MapKit, CoreLocation</span><span class="skill-level">Orta</span></li>
+                        </ul>
+                    </div>
+                    <div class="skill-col">
+                        <h3>Backend & Veri</h3>
+                        <ul class="skill-list">
+                            <li><span>Firebase (Auth, Firestore, Storage)</span><span class="skill-level">Orta</span></li>
+                            <li><span>REST API entegrasyonları</span><span class="skill-level">Başlangıç</span></li>
+                            <li><span>Temel SQL & NoSQL kavramları</span><span class="skill-level">Başlangıç</span></li>
+                        </ul>
+                    </div>
+                    <div class="skill-col">
+                        <h3>Web & Diğer</h3>
+                        <ul class="skill-list">
+                            <li><span>HTML5, CSS3, JavaScript</span><span class="skill-level">İleri</span></li>
+                            <li><span>Git, GitHub, Xcode</span><span class="skill-level">İleri</span></li>
+                            <li><span>Figma ile basit UI tasarımı</span><span class="skill-level">İleri</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="section">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>Deneyim</h2>
+                    <p>Profesyonel ve proje bazlı deneyimlerim.</p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>iOS Developer (Staj)</h3>
+                                <span class="timeline-company">Teknasyon – İstanbul</span>
+                            </div>
+                            <div class="timeline-meta">
+                                <span>2025 • Staj</span>
+                            </div>
+                            <ul>
+                                <li>Mevcut iOS uygulamalarında bug fix, feature geliştirme ve performans iyileştirmeleri yaptım.</li>
+                                <li>UIKit ile component bazlı tasarımlar, reusable view pattern’leri ve temiz kod pratikleri üzerinde çalıştım.</li>
+                                <li>Takım içinde code review süreçlerine dahil oldum, Git flow ve PR süreçlerine alıştım.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Freelance iOS Geliştirici</h3>
+                                <span class="timeline-company">Bireysel</span>
+                            </div>
+                            <div class="timeline-meta">
+                                <span>2024 – Devam ediyor</span>
+                            </div>
+                            <ul>
+                                <li>App Store’da yayınlanan kişisel projeler geliştirdim (TasklyX, Trackly vb.).</li>
+                                <li>Kullanıcı dostu arayüzler, local notifications, premium özellik kurguları ve analitik entegrasyonları üzerinde çalıştım.</li>
+                                <li>Performans, hata yönetimi ve kullanıcı geri bildirimlerine göre iteratif geliştirme yaptım.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="section">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>Eğitim</h2>
+                    <p>Akademik geçmişim.</p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h2>İstanbul Topkapı Üniversitesi</h2>
+                                <span class="timeline-company">Yönetim Bilişim Sistemleri (YBS) </span>
+                            </div>
+                            <div class="timeline-meta">
+                                <span>Lisans • 2024 – Devam ediyor • İstanbul</span>
+                            </div>
+                            <ul>
+                                <li>İşletme, bilişim sistemleri, veri ve yazılım geliştirme alanlarını birleştiren disiplinler arası bir eğitim alıyorum. Öğrendiklerimi aktif projelerde kullanarak teoriyi pratikle birleştirmeye odaklanıyorum.</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h2>İstanbul Üniversitesi</h2>
+                                <span class="timeline-company">Bilgisayar Programcılığı</span>
+                            </div>
+                            <div class="timeline-meta">
+                                <span>Önlisans • 2023 – • İstanbul</span>
+                            </div>
+                            <ul>
+                                <li>Bilgisayar programcılığı eğitimimde; yazılım temelleri, algoritmik düşünme ve veri odaklı uygulamalar üzerine yoğunlaşıyorum. Öğrendiklerimi projelere dönüştürerek pratik geliştirme deneyimi kazanıyor, modern teknolojilerle çözüm üretme yetkinliğimi artırıyorum.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>Projeler</h2>
+                    <p>Gerçek kullanıcıya dokunan, üzerinde çalıştığım uygulamalar.</p>
+                </div>
+
+                <div class="projects-filters">
+                    <button class="filter-btn active" data-filter="all">Tümü</button>
+                    <button class="filter-btn" data-filter="ios">iOS</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="other">Diğer</button>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card" data-category="ios">
+                        <div class="project-chip">iOS • App Store</div>
+                        <h3>TasklyX – Akıllı Görev Yöneticisi</h3>
+                        <p>
+                            Görevleri kategori, emoji ve hatırlatıcılarla düzenleyen, minimal ve performanslı bir to-do uygulaması.
+                            Local notifications, Firebase senkronizasyonu ve çoklu tema desteği içeriyor.
+                        </p>
+                        <ul class="project-tech">
+                            <li>Swift</li>
+                            <li>UIKit</li>
+                            <li>Firebase</li>
+                            <li>Local Notifications</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="/Project/TasklyX/">Detay</a>
+                            <a href="https://apps.apple.com/tr/app/tasklyx/id6754032288?l=tr" target="_blank">App Store</a>
+                            <a href="https://github.com/efebulbul/Taskly" target="_blank">GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="ios">
+                        <div class="project-chip">iOS • Devam</div>
+                        <h3>Trackly – Koşu & Aktivite Takibi</h3>
+                        <p>
+                            Koşu ve yürüyüşleri gerçek zamanlı izleyen, MapKit ile rota çizen, tempo, mesafe ve kalori takibi sunan bir fitness uygulaması.
+                        </p>
+                        <ul class="project-tech">
+                            <li>Swift</li>
+                            <li>UIKit</li>
+                            <li>MapKit</li>
+                            <li>CoreLocation</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="/Project/TracklyX/">Detay</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="other">
+                        <div class="project-chip">Üniversite Projesi</div>
+                        <h3>Otonom Arama-Kurtarma Dron Projesi</h3>
+                        <p>
+                            Afet senaryolarında termal kamera ve görüntü işleme kullanarak kayıp kişileri tespit etmeyi hedefleyen bir drone projesi.
+                        </p>
+                        <ul class="project-tech">
+                            <li>Python</li>
+                            <li>Computer Vision</li>
+                            <li>Prototipleme</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card" data-category="web">
+                        <div class="project-chip">Web</div>
+                        <h3>Kişisel CV & Portfolio Sitesi</h3>
+                        <p>
+                            HTML, CSS ve JavaScript ile hazırlanan, profesyonel kimliğimi yansıtan, responsive ve performanslı bir kişisel web sitesi.
+                        </p>
+                        <ul class="project-tech">
+                            <li>HTML</li>
+                            <li>CSS (Flex/Grid)</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Canlı Demo</a>
+                            <a href="#" target="_blank">GitHub</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINANCE -->
+        <section id="finance" class="section section-alt">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>Finans & Portföy</h2>
+                    <p>Veri odaklı portföy takibi ve piyasa analiziyle ilgileniyorum.</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                        Sermaye piyasalarıyla ilgileniyor; portföy dağılımı, risk yönetimi ve performans ölçümü üzerine veri odaklı takipler yapıyorum. Farklı senaryolar altında risk/ödül dengesini değerlendirmek, sonuçları ölçmek ve bunları düzenli olarak analiz etmek bu sürecin temel parçalarını oluşturuyor. Bu yaklaşım, yazılım geliştirme sürecinde de benimsediğim analitik düşünme biçimini, metriklerle ilerleme ve ölçülebilir karar alma alışkanlığımı doğrudan destekliyor. Veriye dayalı değerlendirme yapmanın hem finansal hem de teknik projelerde sürdürülebilir sonuçlar ürettiğine inanıyorum.
+
+                        </p>
+                        <p class="footer-secondary" style="margin-top: 10px;">
+                            Not: Buradaki içerikler yatırım tavsiyesi değildir.
+                        </p>
+                    </div>
+
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <span class="highlight-label">Odak</span>
+                            <p class="highlight-value">Portföy takibi, risk yönetimi, performans analizi</p>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-label">Rutin</span>
+                            <p class="highlight-value">Haftalık/aylık takip, notlar, hedef & disiplin</p>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-label">Yaklaşım</span>
+                            <p class="highlight-value">Veri odaklı, ölçülebilir ve sürdürülebilir</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section section-alt">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>İletişim</h2>
+                    <p>Proje, staj veya iş fırsatları için benimle iletişime geçebilirsiniz.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <p>
+                            iOS geliştirme, ürün odaklı projeler, girişimcilik ve teknoloji tabanlı iş fikirleri üzerine
+                            konuşmak isterseniz bana e-posta gönderebilir veya LinkedIn üzerinden ulaşabilirsiniz.
+                        </p>
+                        <ul class="contact-list">
+                            <li><strong>Email:</strong> info@efebulbul.com</li>
+                            <li><strong>Lokasyon:</strong> İstanbul, Türkiye</li>
+                            <li><strong>LinkedIn:</strong> /efebulbul</li>
+                            <li><strong>GitHub:</strong> /efebulbul</li>
+                        </ul>
+                    </div>
+
+                    <!-- Formspree entegre edilmiş form -->
+                    <div class="contact-form-wrapper">
+                        <form
+                          class="contact-form"
+                          id="contact-form"
+                          action="https://formspree.io/f/xvgjyodd"
+                          method="POST"
+                        >
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="name">Ad Soyad</label>
+                                    <input type="text" id="name" name="name" required />
+                                </div>
+                                <div class="form-field">
+                                    <label for="email">E-posta</label>
+                                    <input type="email" id="email" name="email" required />
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label for="subject">Konu</label>
+                                <input type="text" id="subject" name="subject" required />
+                            </div>
+                            <div class="form-field">
+                                <label for="message">Mesaj</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn primary full-width">Mesajı Gönder</button>
+                            <p id="form-status" class="form-status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>© <span id="year"></span> Efe Bülbül. Tüm hakları saklıdır.</p>
+            <p class="footer-secondary">Bu site HTML, CSS ve JavaScript ile el yapımı olarak tasarlanmıştır.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
