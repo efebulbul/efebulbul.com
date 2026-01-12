@@ -57,12 +57,12 @@
             link.classList.add('active');
         }
 
-        // tasklyx.html
-        if (path === 'tasklyx.html' && href === 'tasklyx.html') {
+        // taskly.html
+        if (path === 'taskly.html' && href === 'taskly.html') {
             link.classList.add('active');
         }
 
-        // tracklyx.html
+        // stride.html
         if (path === 'stride.html' && href === 'stride.html') {
             link.classList.add('active');
         }
