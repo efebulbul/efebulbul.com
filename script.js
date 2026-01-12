@@ -63,7 +63,7 @@
         }
 
         // tracklyx.html
-        if (path === 'tracklyx.html' && href === 'tracklyx.html') {
+        if (path === 'stride.html' && href === 'stride.html') {
             link.classList.add('active');
         }
     });
