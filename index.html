@@ -7,7 +7,7 @@
     <meta name="description" content="Efe Bülbül - iOS Developer, Management Information Systems student. CV, projeler ve iletişim." />
     <link rel="stylesheet" href="style.css" />
 <style>
-  /* Finance dropdown (desktop hover) */
+  /* Dropdown (desktop hover) */
   .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
 
   .nav-dropdown-menu {
@@ -50,13 +50,204 @@
   }
 
   .nav-dropdown-item:hover {
-    background: rgba(0, 107, 255, 0.10);
+    background: rgba(96, 42, 128, 0.14);
     opacity: 1;
   }
 
   /* Hide hover dropdown on mobile; mobile has separate links */
   @media (max-width: 900px) {
     .nav-dropdown-menu { display: none !important; }
+  }
+
+  /* News */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .news-card {
+    grid-column: span 4;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    cursor: pointer;
+    transition: transform 140ms ease, box-shadow 140ms ease;
+  }
+
+  .news-media {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: rgba(96, 42, 128, 0.06);
+    margin-bottom: 12px;
+  }
+
+  .news-thumb {
+    width: 100%;
+    height: 190px;
+    display: block;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1100px) {
+    .news-thumb { height: 200px; }
+  }
+
+  @media (max-width: 700px) {
+    .news-thumb { height: 210px; }
+  }
+
+  .news-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    opacity: 0.85;
+    font-size: 12px;
+  }
+
+  .news-title {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .news-desc {
+    margin: 0;
+    opacity: 0.86;
+    line-height: 1.55;
+  }
+
+  .news-link { display: none; }
+
+  .news-loading {
+    margin-top: 14px;
+    opacity: 0.8;
+  }
+
+  /* Schedule */
+  .schedule-board {
+    margin-top: 18px;
+    border: 1px solid rgba(0, 107, 255, 0.22);
+    background: var(--card-bg);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .schedule-days {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid rgba(0, 107, 255, 0.18);
+    background: rgba(0, 107, 255, 0.04);
+  }
+
+  .schedule-day {
+    padding: 14px 14px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    opacity: 0.92;
+    border-right: 1px solid rgba(0, 107, 255, 0.14);
+  }
+  .schedule-day:last-child { border-right: none; }
+
+  .schedule-cols {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .schedule-col {
+    padding: 14px;
+    border-right: 1px solid rgba(0, 107, 255, 0.12);
+    min-height: 240px;
+    background: rgba(0, 107, 255, 0.015);
+  }
+  .schedule-col:last-child { border-right: none; }
+
+  .schedule-item {
+    border: 1px solid rgba(0, 107, 255, 0.30);
+    border-radius: 16px;
+    padding: 12px 12px;
+    background: rgba(0, 107, 255, 0.06);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    margin-bottom: 12px;
+  }
+  .schedule-item:last-child { margin-bottom: 0; }
+
+  .schedule-item--class {
+    background: rgba(0, 107, 255, 0.08);
+    border-color: rgba(0, 107, 255, 0.28);
+  }
+
+  .schedule-item--work {
+    background: rgba(0, 107, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.14);
+    border-color: rgba(0, 107, 255, 0.30);
+  }
+
+  .schedule-item--project {
+    background: rgba(0, 107, 255, 0.12);
+    border-color: rgba(0, 107, 255, 0.40);
+  }
+
+  .schedule-time {
+    display: inline-block;
+    font-weight: 900;
+    font-size: 12px;
+    opacity: 0.88;
+    white-space: nowrap;
+  }
+
+  .schedule-title {
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.35;
+    font-weight: 800;
+    opacity: 0.96;
+  }
+
+  .schedule-sub {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.45;
+    opacity: 0.72;
+  }
+
+  .schedule-item:hover {
+    transform: translateY(-1px);
+    transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    border-color: rgba(0, 107, 255, 0.62);
+    background: rgba(0, 107, 255, 0.085);
+  }
+
+  @media (max-width: 1100px) {
+    .schedule-days, .schedule-cols { grid-template-columns: repeat(3, 1fr); }
+    .schedule-day:nth-child(3),
+    .schedule-col:nth-child(3) { border-right: none; }
+
+    .schedule-col {
+      border-right: 1px solid rgba(0, 107, 255, 0.12);
+      border-bottom: 1px solid rgba(0, 107, 255, 0.12);
+    }
+
+    /* second row (cols 4-5) should not have bottom border */
+    .schedule-col:nth-child(4),
+    .schedule-col:nth-child(5) { border-bottom: none; }
+  }
+
+  @media (max-width: 700px) {
+    .schedule-days, .schedule-cols { grid-template-columns: 1fr; }
+    .schedule-day { border-right: none; text-align: left; }
+    .schedule-col { border-right: none; border-bottom: 1px solid rgba(0, 107, 255, 0.12); }
+    .schedule-col:last-child { border-bottom: none; }
   }
 </style>
 </head>
@@ -107,14 +298,8 @@
                     <a href="/Project/Stride/" class="nav-dropdown-item" role="menuitem">Stride</a>
                   </div>
                 </div>
-
-                <div class="nav-dropdown">
-                  <a href="#finance" class="nav-link nav-drop-toggle">Finans</a>
-                  <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
-                    <a href="#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
-                    <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
-                  </div>
-                </div>
+                <a href="#news" class="nav-link">Haberler</a>
+                <a href="#schedule" class="nav-link">Program</a>
                 <a href="#contact" class="nav-link">İletişim</a>
             </nav>
 
@@ -135,10 +320,10 @@
             <a href="#skills" class="nav-link">Yetenekler</a>
             <a href="#experience" class="nav-link">Deneyim</a>
             <a href="#projects" class="nav-link">Projeler (Ana Sayfa)</a>
-            <a href="/Project/Taskly/" class="nav-link">Taskly</a>
+            <a href="/Project/Taskly" class="nav-link">Taskly</a>
             <a href="/Project/Stride/" class="nav-link">Stride</a>
-            <a href="#finance" class="nav-link">Finans</a>
-            <a href="/Finance/" class="nav-link">Portföy Takibi</a>
+            <a href="#news" class="nav-link">Haberler</a>
+            <a href="#schedule" class="nav-link">Program</a>
             <a href="#contact" class="nav-link">İletişim</a>
         </nav>
     </header>
@@ -434,16 +619,19 @@
                     </article>
 
                     <article class="project-card" data-category="other">
-                        <div class="project-chip">Üniversite Projesi</div>
-                        <h3>Otonom Arama-Kurtarma Dron Projesi</h3>
+                        <div class="project-chip">Medium Yazısı</div>
+                        <h3>Apple Fitness tarzı 3D rozet sistemi (SwiftUI & RealityKit)</h3>
                         <p>
-                            Afet senaryolarında termal kamera ve görüntü işleme kullanarak kayıp kişileri tespit etmeyi hedefleyen bir drone projesi.
+                        Stride içinde USDZ tabanlı 3D başarı rozetlerini nasıl entegre ettiğimi anlattığım yazı.
                         </p>
                         <ul class="project-tech">
-                            <li>Python</li>
-                            <li>Computer Vision</li>
-                            <li>Prototipleme</li>
+                            <li>RealityKit</li>
+                            <li>UIKit</li>
+                            <li>SwiftUI</li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://efebulbul.medium.com/swiftui-ve-realitykit-ile-apple-fitness-tarz%C4%B1-3d-rozet-sistemi-olu%C5%9Fturmak-faf141ec96d7" target="_blank" rel="noopener">Oku</a>
+                        </div>
                     </article>
 
                     <article class="project-card" data-category="web">
@@ -466,39 +654,154 @@
             </div>
         </section>
 
-        <!-- FINANCE -->
-        <section id="finance" class="section section-alt">
+        <!-- NEWS -->
+        <section id="news" class="section section-alt">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2>Finans & Portföy</h2>
-                    <p>Veri odaklı portföy takibi ve piyasa analiziyle ilgileniyorum.</p>
+                    <h2>Güncel Haberler</h2>
+                    <p>Paylaştığım içerikler, güncellemeler ve duyurular.</p>
                 </div>
 
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>
-                        Sermaye piyasalarıyla ilgileniyor; portföy dağılımı, risk yönetimi ve performans ölçümü üzerine veri odaklı takipler yapıyorum. Farklı senaryolar altında risk/ödül dengesini değerlendirmek, sonuçları ölçmek ve bunları düzenli olarak analiz etmek bu sürecin temel parçalarını oluşturuyor. Bu yaklaşım, yazılım geliştirme sürecinde de benimsediğim analitik düşünme biçimini, metriklerle ilerleme ve ölçülebilir karar alma alışkanlığımı doğrudan destekliyor. Veriye dayalı değerlendirme yapmanın hem finansal hem de teknik projelerde sürdürülebilir sonuçlar ürettiğine inanıyorum.
+                <div class="news-grid" aria-label="Haberler listesi">
+                    <article class="news-card">
+                        <div class="news-media">
+                            <img class="news-thumb" src="news-1.png" alt="Apple Fitness tarzı 3D rozet" loading="lazy">
+                        </div>
+                        <div class="news-meta">
+                            <span>Medium</span>
+                            <span>—</span>
+                        </div>
+                        <h3 class="news-title">Apple Fitness tarzı 3D rozet sistemi (SwiftUI & RealityKit)</h3>
+                        <p class="news-desc">Stride içinde USDZ tabanlı 3D başarı rozetlerini nasıl entegre ettiğimi anlattığım yazı.</p>
+                        <a class="news-link" href="https://efebulbul.medium.com/swiftui-ve-realitykit-ile-apple-fitness-tarz%C4%B1-3d-rozet-sistemi-olu%C5%9Fturmak-faf141ec96d7" target="_blank" rel="noopener" aria-label="Haberi aç"></a>
+                    </article>
 
-                        </p>
-                        <p class="footer-secondary" style="margin-top: 10px;">
-                            Not: Buradaki içerikler yatırım tavsiyesi değildir.
-                        </p>
+                    <article class="news-card">
+                        <div class="news-media">
+                            <img class="news-thumb" src="news-2.jpg" alt="LinkedIn paylaşımı" loading="lazy">
+                        </div>
+                        <div class="news-meta">
+                            <span>App Store</span>
+                            <span>—</span>
+                        </div>
+                        <h3 class="news-title">TasklyX Yayında Yılbaşı Konsepti</h3>
+                        <p class="news-desc">Yapımını üstlendiğim TasklyX için v1.0.3 Yılbaşı Konseptiyle karşınızdayız!</p>
+                        <a class="news-link" href="https://apps.apple.com/tr/app/tasklyy/id6754032288?l=tr" target="_blank" rel="noopener" aria-label="Haberi aç"></a>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-media">
+                            <img class="news-thumb" src="news-3.jpeg" alt="Taskly ve Stride güncellemeleri" loading="lazy">
+                        </div>
+                        <div class="news-meta">
+                            <span>Apple Developer</span>
+                            <span>—</span>
+                        </div>
+                        <h3 class="news-title">App Store 2025 Ödülü kazananları açıklandı.</h3>
+                        <p class="news-desc">Dünyanın dört bir yanından gelen bu geliştiricilerin App Store projeleri.</p>
+                        <a class="news-link" href="https://developer.apple.com/app-store/app-store-awards-2025/" target="_blank" rel="noopener" aria-label="Haberi aç"></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCHEDULE -->
+        <section id="schedule" class="section">
+            <div class="container reveal">
+                <div class="section-header">
+                    <h2>Program</h2>
+                </div>
+
+                <div class="schedule-board" aria-label="Haftalık program">
+
+                    <div class="schedule-days" aria-hidden="true">
+                        <div class="schedule-day">Pazartesi</div>
+                        <div class="schedule-day">Salı</div>
+                        <div class="schedule-day">Çarşamba</div>
+                        <div class="schedule-day">Perşembe</div>
+                        <div class="schedule-day">Cuma</div>
                     </div>
 
-                    <div class="about-highlights">
-                        <div class="highlight-card">
-                            <span class="highlight-label">Odak</span>
-                            <p class="highlight-value">Portföy takibi, risk yönetimi, performans analizi</p>
+                    <div class="schedule-cols">
+                        <!-- Pazartesi -->
+                        <div class="schedule-col" aria-label="Pazartesi">
+                            <div class="schedule-item schedule-item--class">
+                                <div class="schedule-time">09:00 - 12:00</div>
+                                <div class="schedule-title">Organizational Data Management</div>
+                                <div class="schedule-sub">IMS261</div>
+                            </div>
+                            <div class="schedule-item schedule-item--class">
+                                <div class="schedule-time">12:00 - 15:00</div>
+                                <div class="schedule-title">Management & Organization</div>
+                                <div class="schedule-sub">IMS263</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">19:00 - 22:00</div>
+                                <div class="schedule-title">Gym / Koşu</div>
+                            </div>
                         </div>
-                        <div class="highlight-card">
-                            <span class="highlight-label">Rutin</span>
-                            <p class="highlight-value">Haftalık/aylık takip, notlar, hedef & disiplin</p>
+
+                        <!-- Salı -->
+                        <div class="schedule-col" aria-label="Salı">
+                            <div class="schedule-item schedule-item--class">
+                                <div class="schedule-time">09:00 - 12:00</div>
+                                <div class="schedule-title">Data Structure & Database Management Systems</div>
+                                <div class="schedule-sub">IMS201</div>
+                            </div>
+                            <div class="schedule-item schedule-item--class">
+                                <div class="schedule-time">14:00 - 17:00</div>
+                                <div class="schedule-title">Marketing Management</div>
+                                <div class="schedule-sub">IMS209</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">19:00 - 22:00</div>
+                                <div class="schedule-title">Öğrenme</div>
+                            </div>
                         </div>
-                        <div class="highlight-card">
-                            <span class="highlight-label">Yaklaşım</span>
-                            <p class="highlight-value">Veri odaklı, ölçülebilir ve sürdürülebilir</p>
+
+                        <!-- Çarşamba -->
+                        <div class="schedule-col" aria-label="Çarşamba">
+                            <div class="schedule-item schedule-item--work">
+                                <div class="schedule-time">09:00 - 18:00</div>
+                                <div class="schedule-title">Staj/İOS</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">19:00 - 22:00</div>
+                                <div class="schedule-title">Dinlenme</div>
+                            </div>
                         </div>
+
+                        <!-- Perşembe -->
+                        <div class="schedule-col" aria-label="Perşembe">
+                            <div class="schedule-item schedule-item--class">
+                                <div class="schedule-time">09:00 - 12:00</div>
+                                <div class="schedule-title">Web Design & Internet Programming</div>
+                                <div class="schedule-sub">IMS207</div>
+                            </div>
+                            <div class="schedule-item schedule-item--work">
+                                <div class="schedule-time">13:00 - 18:00</div>
+                                <div class="schedule-title">Staj/İOS</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">19:00 - 22:00</div>
+                                <div class="schedule-title">Öğrenme</div>
+                            </div>
+                        </div>
+
+                        <!-- Cuma -->
+                        <div class="schedule-col" aria-label="Cuma">
+                            <div class="schedule-item schedule-item--work">
+                                <div class="schedule-time">09:00 - 18:00</div>
+                                <div class="schedule-title">Staj/İOS</div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">19:00 - 22:00</div>
+                                <div class="schedule-title">Dinlenme</div>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </section>
@@ -563,7 +866,7 @@
     <footer class="site-footer">
         <div class="container footer-container">
             <p>© <span id="year"></span> Efe Bülbül. Tüm hakları saklıdır.</p>
-            <p class="footer-secondary">Bu site HTML, CSS ve JavaScript ile el yapımı olarak tasarlanmıştır.</p>
+            
         </div>
     </footer>
 

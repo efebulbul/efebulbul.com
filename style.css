@@ -1093,6 +1093,159 @@ body {
     color: var(--accent);
 }
 
+/* News */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.news-card {
+    grid-column: span 4;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 107, 255, 0.78);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(0, 107, 255, 0.32),
+        0 0 0 7px rgba(0, 107, 255, 0.16);
+}
+
+.news-media {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: rgba(0, 107, 255, 0.07);
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.news-thumb {
+    width: 100%;
+    height: 190px;
+    display: block;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 180ms ease;
+}
+
+/* Image zoom on hover */
+.news-card:hover .news-thumb {
+    transform: scale(1.07);
+}
+
+/* Subtle gradient overlay on image (like news cards) */
+.news-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.00) 40%, rgba(0,0,0,0.22) 100%);
+    opacity: 0;
+    transition: opacity 160ms ease;
+    pointer-events: none;
+}
+
+.news-card:hover .news-media::after {
+    opacity: 1;
+}
+
+.news-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    opacity: 0.85;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.news-title {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.news-desc {
+    margin: 0;
+    opacity: 0.86;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+/* Keep your existing .news-link in HTML, but make it look like a subtle hint */
+.news-link {
+    display: inline-flex;
+    margin-top: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text);
+    opacity: 0.92;
+}
+
+.news-link:hover { opacity: 1; }
+
+.news-loading {
+    margin-top: 14px;
+    opacity: 0.8;
+    color: var(--muted);
+}
+
+/* Little arrow appears on hover (Kağan-like affordance) */
+.news-card::after {
+    content: "→";
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(0, 107, 255, 0.22);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 160ms ease, transform 160ms ease;
+    pointer-events: none;
+    font-weight: 900;
+}
+
+.news-card:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Keyboard focus */
+.news-card:focus {
+    outline: 2px solid rgba(0, 107, 255, 0.62);
+    outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+    .news-card { grid-column: span 6; }
+    .news-thumb { height: 200px; }
+}
+
+@media (max-width: 700px) {
+    .news-card { grid-column: span 12; }
+    .news-thumb { height: 210px; }
+}
+
 /* Contact */
 
 .contact-grid {

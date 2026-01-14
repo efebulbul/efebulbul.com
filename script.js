@@ -222,3 +222,51 @@
         setActive(0);
     });
 })();
+
+// Make whole news cards clickable (use existing .news-link href)
+(function () {
+  function initNewsCardClicks() {
+    var cards = document.querySelectorAll('.news-card');
+    if (!cards || !cards.length) return;
+
+    cards.forEach(function (card) {
+      // Avoid binding twice
+      if (card.dataset && card.dataset.clickBound === '1') return;
+      if (card.dataset) card.dataset.clickBound = '1';
+
+      card.addEventListener('click', function (e) {
+        // If user clicked a real link inside, keep default behavior
+        if (e.target && e.target.closest && e.target.closest('a')) return;
+
+        var link = card.querySelector('.news-link');
+        if (!link) return;
+
+        var href = link.getAttribute('href');
+        if (!href) return;
+
+        var isBlank = (link.getAttribute('target') || '').toLowerCase() === '_blank';
+        if (isBlank) {
+          window.open(href, '_blank', 'noopener');
+        } else {
+          window.location.href = href;
+        }
+      });
+
+      // Keyboard accessibility (Enter)
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'link');
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNewsCardClicks);
+  } else {
+    initNewsCardClicks();
+  }
+})();
