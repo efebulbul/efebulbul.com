@@ -1236,15 +1236,57 @@ body {
     outline-offset: 3px;
 }
 
+
 @media (max-width: 1100px) {
     .news-card { grid-column: span 6; }
     .news-thumb { height: 200px; }
 }
 
 @media (max-width: 700px) {
-    .news-card { grid-column: span 12; }
     .news-thumb { height: 210px; }
 }
+
+/* News: small screens => horizontal scroll (like schedule), instead of squeezing */
+@media (max-width: 1100px) {
+    .news-grid {
+        display: flex !important;
+        flex-wrap: nowrap;
+        gap: 14px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+        scroll-snap-type: x mandatory;
+
+        /* kill grid-related sizing if any */
+        grid-template-columns: none !important;
+    }
+
+    .news-card {
+        flex: 0 0 82vw;
+        width: 82vw;
+        max-width: 420px;
+        grid-column: auto !important;
+        scroll-snap-align: start;
+    }
+}
+
+@media (max-width: 520px) {
+    .news-card {
+        flex-basis: 88vw;
+        max-width: 380px;
+    }
+}
+
+.news-grid::-webkit-scrollbar { height: 10px; }
+.news-grid::-webkit-scrollbar-track { background: rgba(0, 107, 255, 0.06); }
+.news-grid::-webkit-scrollbar-thumb {
+    background: rgba(0, 107, 255, 0.22);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 0, 0, 0.0);
+    background-clip: padding-box;
+}
+.news-grid::-webkit-scrollbar-thumb:hover { background: rgba(0, 107, 255, 0.32); }
 
 /* Contact */
 
@@ -1272,6 +1314,25 @@ body {
 
 .contact-list li {
     margin-bottom: 4px;
+}
+
+/* Clickable contact links */
+.contact-link {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 800;
+    opacity: 0.92;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.contact-link:focus-visible {
+    outline: 2px solid rgba(0, 107, 255, 0.62);
+    outline-offset: 3px;
+    border-radius: 8px;
 }
 
 .contact-form-wrapper {
