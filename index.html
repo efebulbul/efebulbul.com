@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -6,11 +8,8 @@
     <title>Efe Bülbül | iOS Developer & MIS Student</title>
     <meta name="description" content="Efe Bülbül - iOS Developer, Management Information Systems student. CV, projeler ve iletişim." />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
 <style>
-  /* Dropdown (desktop hover) */
+  /* Finance dropdown (desktop hover) */
   .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
 
   .nav-dropdown-menu {
@@ -53,327 +52,13 @@
   }
 
   .nav-dropdown-item:hover {
-    background: rgba(96, 42, 128, 0.14);
+    background: rgba(0, 107, 255, 0.10);
     opacity: 1;
-  }
-
-  /* Language switcher */
-  .lang-switch {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: rgba(0,0,0,0.10);
-  }
-
-  .lang-btn {
-    appearance: none;
-    border: 0;
-    background: transparent;
-    color: var(--text);
-    font-weight: 800;
-    font-size: 12px;
-    padding: 8px 10px;
-    border-radius: 999px;
-    cursor: pointer;
-    opacity: 0.75;
-    line-height: 1;
-  }
-
-  .lang-btn:hover { opacity: 1; }
-
-  .lang-btn[aria-pressed="true"] {
-    opacity: 1;
-    background: rgba(0, 107, 255, 0.18);
-    border: 1px solid rgba(0, 107, 255, 0.28);
-  }
-
-  @media (max-width: 900px) {
-    .lang-switch { display: none; }
   }
 
   /* Hide hover dropdown on mobile; mobile has separate links */
   @media (max-width: 900px) {
     .nav-dropdown-menu { display: none !important; }
-  }
-
-  @media (max-width: 900px) {
-    .mobile-lang {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding: 0 10px;
-      margin: 6px 0 12px 0;
-    }
-    .mobile-lang .nav-link {
-      text-align: center;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 0;
-      opacity: 0.9;
-      background: rgba(0,0,0,0.10);
-    }
-    .mobile-lang .nav-link.active {
-      background: rgba(0, 107, 255, 0.18);
-      border-color: rgba(0, 107, 255, 0.28);
-      opacity: 1;
-    }
-  }
-
-  /* News */
-  .news-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 16px;
-    margin-top: 18px;
-  }
-
-  .news-card {
-    grid-column: span 4;
-    border: 1px solid var(--border);
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-    cursor: pointer;
-    transition: transform 140ms ease, box-shadow 140ms ease;
-  }
-
-  .news-media {
-    width: 100%;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: rgba(96, 42, 128, 0.06);
-    margin-bottom: 12px;
-  }
-
-  .news-thumb {
-    width: 100%;
-    height: 190px;
-    display: block;
-    object-fit: cover;
-  }
-
-  @media (max-width: 1100px) {
-    .news-thumb { height: 200px; }
-  }
-
-  @media (max-width: 700px) {
-    .news-thumb { height: 210px; }
-  }
-
-  .news-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 10px;
-    opacity: 0.85;
-    font-size: 12px;
-  }
-
-  .news-title {
-    margin: 0 0 8px 0;
-    font-size: 16px;
-    line-height: 1.35;
-  }
-
-  .news-desc {
-    margin: 0;
-    opacity: 0.86;
-    line-height: 1.55;
-  }
-
-  .news-link { display: none; }
-
-  .news-loading {
-    margin-top: 14px;
-    opacity: 0.8;
-  }
-
-  /* Schedule */
-  .schedule-board {
-    margin-top: 18px;
-    border: 1px solid rgba(0, 107, 255, 0.22);
-    background: var(--card-bg);
-    border-radius: 18px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .schedule-board > .schedule-days,
-  .schedule-board > .schedule-cols {
-    width: max-content;
-  }
-
-  .schedule-days {
-    display: grid;
-    grid-template-columns: repeat(5, 220px);
-    min-width: calc(5 * 220px);
-    border-bottom: 1px solid rgba(0, 107, 255, 0.18);
-    background: rgba(0, 107, 255, 0.04);
-  }
-
-  .schedule-day {
-    padding: 14px 14px;
-    text-align: center;
-    font-weight: 900;
-    font-size: 13px;
-    letter-spacing: 0.02em;
-    opacity: 0.92;
-    border-right: 1px solid rgba(0, 107, 255, 0.14);
-  }
-  .schedule-day:last-child { border-right: none; }
-
-  .schedule-cols {
-    display: grid;
-    grid-template-columns: repeat(5, 220px);
-    min-width: calc(5 * 220px);
-  }
-
-  .schedule-col {
-    padding: 14px;
-    border-right: 1px solid rgba(0, 107, 255, 0.12);
-    min-height: 240px;
-    background: rgba(0, 107, 255, 0.015);
-  }
-  .schedule-col:last-child { border-right: none; }
-
-  .schedule-item {
-    border: 1px solid rgba(0, 107, 255, 0.30);
-    border-radius: 16px;
-    padding: 12px 12px;
-    background: rgba(0, 107, 255, 0.06);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-    margin-bottom: 12px;
-  }
-  .schedule-item:last-child { margin-bottom: 0; }
-
-  .schedule-item--class {
-    background: rgba(0, 107, 255, 0.08);
-    border-color: rgba(0, 107, 255, 0.28);
-  }
-
-  .schedule-item--work {
-    background: rgba(0, 107, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.14);
-    border-color: rgba(0, 107, 255, 0.30);
-  }
-
-  .schedule-item--project {
-    background: rgba(0, 107, 255, 0.12);
-    border-color: rgba(0, 107, 255, 0.40);
-  }
-
-  .schedule-time {
-    display: inline-block;
-    font-weight: 900;
-    font-size: 12px;
-    opacity: 0.88;
-    white-space: nowrap;
-  }
-
-  .schedule-title {
-    margin-top: 6px;
-    font-size: 13px;
-    line-height: 1.35;
-    font-weight: 800;
-    opacity: 0.96;
-  }
-
-  .schedule-sub {
-    margin-top: 4px;
-    font-size: 12px;
-    line-height: 1.45;
-    opacity: 0.72;
-  }
-
-  .schedule-item:hover {
-    transform: translateY(-1px);
-    transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-    border-color: rgba(0, 107, 255, 0.62);
-    background: rgba(0, 107, 255, 0.085);
-  }
-
-  .schedule-board::-webkit-scrollbar { height: 10px; }
-  .schedule-board::-webkit-scrollbar-track { background: rgba(0, 107, 255, 0.06); }
-  .schedule-board::-webkit-scrollbar-thumb {
-    background: rgba(0, 107, 255, 0.22);
-    border-radius: 999px;
-    border: 2px solid rgba(0, 0, 0, 0.0);
-    background-clip: padding-box;
-  }
-  .schedule-board::-webkit-scrollbar-thumb:hover { background: rgba(0, 107, 255, 0.32); }
-
-  /* (removed media query for 1100px) */
-
-  @media (max-width: 700px) {
-    /* keep exact same 5-column layout; just ensure scroll */
-    .schedule-board {
-      overflow-x: auto !important;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .schedule-days, .schedule-cols {
-      grid-template-columns: repeat(5, 220px) !important;
-      min-width: calc(5 * 220px) !important;
-    }
-  }
-  /* Embedded school page (under Schedule) */
-  .embed-card{
-    margin-top:18px;
-    max-width: 1100px;
-    margin-left: auto; margin-right: auto;
-    border: 1px solid rgba(0, 107, 255, 0.22);
-    background: var(--card-bg);
-    border-radius: 18px;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.10);
-  }
-  .embed-head{ padding: 16px 16px 0 16px; }
-  .embed-head h3{
-    margin: 0 0 8px 0;
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 0.01em;
-  }
-  .embed-head p{
-    margin: 0 0 12px 0;
-    opacity: 0.86;
-    line-height: 1.55;
-  }
-  .embed-frame{
-    border-top: 1px solid var(--border);
-    background: rgba(0, 107, 255, 0.04);
-  }
-  .embed-frame iframe{
-    width: 100%;
-    height: 430px;
-    border: 0;
-    display: block;
-    background: transparent;
-  }
-  .embed-fallback{
-    margin: 0;
-    padding: 12px 16px 16px 16px;
-    font-size: 12px;
-    opacity: 0.8;
-  }
-  .embed-fallback a{
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 800;
-  }
-  .embed-fallback a:hover{ text-decoration: underline; }
-  @media (max-width: 700px){
-    .embed-frame iframe{ height: 40vh; }
   }
 </style>
 </head>
@@ -406,22 +91,34 @@
         <div class="container nav-container">
             <div class="logo">
                 <span class="logo-mark">
-                    <img src="logo.png" alt="Efe Bülbül" class="avatar-img">
+                    <img src="efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
                 </span>
                 <span class="logo-text">Efe Bülbül</span>
             </div>
 
             <nav class="nav">
-                <a href="#hero" class="nav-link" data-i18n="nav.home">Ana Sayfa</a>
-                <a href="#about" class="nav-link" data-i18n="nav.about">Hakkımda</a>
-                <a href="#skills" class="nav-link" data-i18n="nav.skills">Yetenekler</a>
-                <a href="#experience" class="nav-link" data-i18n="nav.experience">Deneyim</a>
+                <a href="#hero" class="nav-link">Ana Sayfa</a>
+                <a href="#about" class="nav-link">Hakkımda</a>
+                <a href="#skills" class="nav-link">Yetenekler</a>
+                <a href="#experience" class="nav-link">Deneyim</a>
                 <div class="nav-dropdown">
-                  <a href="#projects" class="nav-link nav-drop-toggle" data-i18n="nav.projects">Projeler</a>
+                  <a href="#projects" class="nav-link nav-drop-toggle">Projeler</a>
+                  <div class="nav-dropdown-menu" role="menu" aria-label="Projeler menüsü">
+                    <a href="#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
+                    <a href="/Project/Taskly/" class="nav-dropdown-item" role="menuitem">Taskly</a>
+                    <a href="/Project/Stride/" class="nav-dropdown-item" role="menuitem">Stride</a>
+                  </div>
                 </div>
-                <a href="#news" class="nav-link" data-i18n="nav.news">Haberler</a>
-                <a href="#schedule" class="nav-link" data-i18n="nav.schedule">Program</a>
-                <a href="#contact" class="nav-link" data-i18n="nav.contact">İletişim</a>
+
+                <div class="nav-dropdown">
+                  <a href="#finance" class="nav-link nav-drop-toggle">Finans</a>
+                  <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
+                    <a href="#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
+                    <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
+                  </div>
+                </div>
+                <a href="#news" class="nav-link">Haberler</a>
+                <a href="#contact" class="nav-link">İletişim</a>
             </nav>
 
             <div class="header-actions">
@@ -429,11 +126,6 @@
                     <span class="icon-moon">🌙</span>
                     <span class="icon-sun">☀️</span>
                 </button>
-                <div class="lang-switch" role="group" aria-label="Dil seçimi" data-i18n-attr="aria-label:nav.aria.lang">
-                    <button class="lang-btn" type="button" data-lang="tr" aria-pressed="true">TR</button>
-                    <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
-                    <button class="lang-btn" type="button" data-lang="de" aria-pressed="false">DE</button>
-                </div>
                 <button id="mobile-menu-toggle" class="icon-button hamburger" aria-label="Menü aç/kapat">
                     <span></span><span></span><span></span>
                 </button>
@@ -441,19 +133,17 @@
         </div>
 
         <nav class="nav nav-mobile" id="mobile-nav">
-            <a href="#hero" class="nav-link" data-i18n="nav.home">Ana Sayfa</a>
-            <div class="mobile-lang" aria-label="Dil seçimi" data-i18n-attr="aria-label:nav.aria.lang">
-                <a href="#" class="nav-link" data-lang="tr">TR</a>
-                <a href="#" class="nav-link" data-lang="en">EN</a>
-                <a href="#" class="nav-link" data-lang="de">DE</a>
-            </div>
-            <a href="#about" class="nav-link" data-i18n="nav.about">Hakkımda</a>
-            <a href="#skills" class="nav-link" data-i18n="nav.skills">Yetenekler</a>
-            <a href="#experience" class="nav-link" data-i18n="nav.experience">Deneyim</a>
-            <a href="#projects" class="nav-link" data-i18n="nav.projects_home">Projeler (Ana Sayfa)</a>
-            <a href="#news" class="nav-link" data-i18n="nav.news">Haberler</a>
-            <a href="#schedule" class="nav-link" data-i18n="nav.schedule">Program</a>
-            <a href="#contact" class="nav-link" data-i18n="nav.contact">İletişim</a>
+            <a href="#hero" class="nav-link">Ana Sayfa</a>
+            <a href="#about" class="nav-link">Hakkımda</a>
+            <a href="#skills" class="nav-link">Yetenekler</a>
+            <a href="#experience" class="nav-link">Deneyim</a>
+            <a href="#projects" class="nav-link">Projeler (Ana Sayfa)</a>
+            <a href="/Project/Taskly/" class="nav-link">Taskly</a>
+            <a href="/Project/Stride/" class="nav-link">Stride</a>
+            <a href="#finance" class="nav-link">Finans</a>
+            <a href="/Finance/" class="nav-link">Portföy Takibi</a>
+            <a href="#news" class="nav-link">Haberler</a>
+            <a href="#contact" class="nav-link">İletişim</a>
         </nav>
     </header>
 
@@ -462,34 +152,34 @@
         <section id="hero" class="section hero">
             <div class="container hero-grid reveal">
                 <div class="hero-text">
-                    <p class="eyebrow" data-i18n="hero.eyebrow">iOS Developer • MIS Student</p>
+                    <p class="eyebrow">iOS Developer • MIS Student</p>
                     <h1>
-                        <span data-i18n="hero.h1.pre">Merhaba, ben</span> <span class="accent">Efe Bülbül</span><span data-i18n="hero.h1.post">.</span><br />
-                        <span data-i18n="hero.h1.line2">Ürün odaklı, temiz kod seven bir geliştiriciyim.</span>
+                        Merhaba, ben <span class="accent">Efe Bülbül</span>.<br />
+                        Ürün odaklı, temiz kod seven bir geliştiriciyim.
                     </h1>
-                    <p class="hero-subtitle" data-i18n="hero.subtitle">
+                    <p class="hero-subtitle">
                         İstanbul Topkapı Üniversitesi Yönetim Bilişim Sistemleri öğrencisiyim.
                         iOS geliştirme, yapay zekâ ve yazılım projeleriyle gerçek problemler çözen ürünler
                         üretmeye odaklanıyorum.
                     </p>
 
                     <div class="hero-actions">
-                        <a href="#contact" class="btn primary" data-i18n="hero.cta.contact">Benimle İletişime Geç</a>
-                        <a href="#projects" class="btn ghost" data-i18n="hero.cta.projects">Projelerimi Gör</a>
+                        <a href="#contact" class="btn primary">Benimle İletişime Geç</a>
+                        <a href="#projects" class="btn ghost">Projelerimi Gör</a>
                     </div>
 
                     <div class="hero-meta">
                         <div class="meta-item">
-                            <span class="meta-label" data-i18n="hero.meta.location">Lokasyon</span>
-                            <span class="meta-value"><span data-i18n="contact.value.location">İstanbul, Türkiye</span></span>
+                            <span class="meta-label">Lokasyon</span>
+                            <span class="meta-value">İstanbul, Türkiye</span>
                         </div>
                         <div class="meta-item">
-                            <span class="meta-label" data-i18n="hero.meta.role">Rol</span>
-                            <span class="meta-value"><span data-i18n="hero.meta.role_value">iOS Developer & MIS Student</span></span>
+                            <span class="meta-label">Rol</span>
+                            <span class="meta-value">iOS Developer & MIS Student</span>
                         </div>
                         <div class="meta-item">
-                            <span class="meta-label" data-i18n="hero.meta.focus">Odak</span>
-                            <span class="meta-value"><span data-i18n="hero.meta.focus_value">Mobil Uygulamalar · AI · Frontend</span></span>
+                            <span class="meta-label">Odak</span>
+                            <span class="meta-value">Mobil Uygulamalar · AI · Frontend</span>
                         </div>
                     </div>
                 </div>
@@ -502,8 +192,8 @@
                             </div>
                         </div>
                         <h2>Efe Bülbül</h2>
-                        <p class="profile-title" data-i18n="profile.title">iOS Developer • MIS Student</p>
-                        <p class="profile-summary" data-i18n="profile.summary">
+                        <p class="profile-title">iOS Developer • MIS Student</p>
+                        <p class="profile-summary">
                             Swift, UIKit ve modern mobil deneyimler üzerine çalışan; performans, tasarım ve
                             kullanıcı odaklılık konusunda titiz bir geliştiriciyim.
                         </p>
@@ -514,14 +204,13 @@
                             <span class="tag">Frontend</span>
                         </div>
                         <div class="profile-links">
-                            <a href="mailto:info@efebulbul.com" class="profile-link" data-i18n="profile.links.email">Email</a>
-                            <a href="https://www.linkedin.com/in/efe-bulbul-562464237/" target="_blank" class="profile-link" data-i18n="profile.links.linkedin">LinkedIn</a>
-                            <a href="https://github.com/efebulbul" target="_blank" class="profile-link" data-i18n="profile.links.github">GitHub</a>
-                            <a href="Efe-Bulbul-CV.pdf" target="_blank" class="profile-link" data-i18n="profile.links.cv">CV</a>
+                            <a href="mailto:info@efebulbul.com" class="profile-link">Email</a>
+                            <a href="https://www.linkedin.com/in/efe-bulbul-562464237/" target="_blank" class="profile-link">LinkedIn</a>
+                            <a href="https://github.com/efebulbul" target="_blank" class="profile-link">GitHub</a>
+                            <a href="Efe-Bulbul-CV.pdf" target="_blank" class="profile-link">CV</a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -529,41 +218,40 @@
         <section id="about" class="section">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2 data-i18n="about.h2">Hakkımda</h2>
-                    <p data-i18n="about.p">Profesyonel olarak kimim, nasıl çalışırım?</p>
+                    <h2>Hakkımda</h2>
+                    <p>Profesyonel olarak kimim, nasıl çalışırım?</p>
                 </div>
                 <div class="about-grid">
                     <div class="about-text">
-                        <p data-i18n="about.text1">
+                        <p>
                             Ben Efe, İstanbul Topkapı Üniversitesi’nde Yönetim Bilişim Sistemleri okuyan ve
                             ağırlıklı olarak <strong>iOS geliştirme</strong> alanında ilerleyen bir yazılımcıyım.
                         </p>
-                        <p data-i18n="about.text2">
+                        <p>
                             Kullanıcı deneyimini merkeze alan, performans ve okunabilir kodu önemseyen bir
                             geliştiriciyim. Uygulamalarımda; temiz mimari yaklaşımlar, yeniden kullanılabilir
                             komponentler ve ölçeklenebilir altyapılar kurmaya odaklanıyorum.
                         </p>
-                        <p data-i18n="about.text3">
+                        <p>
                             Uzun vadede hedefim; mobil geliştirme, yapay zekâ ve veri odaklı sistemleri birleştirerek
                             hem Türkiye’de hem de global ölçekte katma değer üreten ürünler geliştirmek.
                         </p>
                     </div>
                     <div class="about-highlights">
                         <div class="highlight-card">
-                            <span class="highlight-label" data-i18n="about.highlights.fields">Alanlar</span>
-                            <p class="highlight-value" data-i18n="about.highlights.fields_desc">iOS Development, UI/UX, REST API, Firebase, Frontend, Piyasalar & Portföy Takibi</p>
+                            <span class="highlight-label">Alanlar</span>
+                            <p class="highlight-value">iOS Development, UI/UX, REST API, Firebase, Frontend, Piyasalar & Portföy Takibi</p>
                         </div>
                         <div class="highlight-card">
-                            <span class="highlight-label" data-i18n="about.highlights.strengths">Güçlü Yönler</span>
-                            <p class="highlight-value" data-i18n="about.highlights.strengths_desc">Problem çözme, detaycılık, sorumluluk alma, sürekli öğrenme</p>
+                            <span class="highlight-label">Güçlü Yönler</span>
+                            <p class="highlight-value">Problem çözme, detaycılık, sorumluluk alma, sürekli öğrenme</p>
                         </div>
                         <div class="highlight-card">
-                            <span class="highlight-label" data-i18n="about.highlights.languages">Diller</span>
-                            <p class="highlight-value" data-i18n="about.highlights.languages_desc">Türkçe (Ana dil), İngilizce (B2)</p>
+                            <span class="highlight-label">Diller</span>
+                            <p class="highlight-value">Türkçe (Ana dil), İngilizce (B2)</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -571,34 +259,34 @@
         <section id="skills" class="section section-alt">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2 data-i18n="skills.h2">Yetenekler</h2>
-                    <p data-i18n="skills.p">Teknik becerilerim ve güçlü olduğum alanlar.</p>
+                    <h2>Yetenekler</h2>
+                    <p>Teknik becerilerim ve güçlü olduğum alanlar.</p>
                 </div>
 
                 <div class="skills-grid">
                     <div class="skill-col">
-                        <h3 data-i18n="skills.mobile">Mobil Geliştirme</h3>
+                        <h3>Mobil Geliştirme</h3>
                         <ul class="skill-list">
-                            <li><span data-i18n="skills.mobile.item1">Swift, UIKit</span><span class="skill-level" data-i18n="skills.level.medium">Orta</span></li>
-                            <li><span data-i18n="skills.mobile.item2">Auto Layout, Programmatic UI</span><span class="skill-level" data-i18n="skills.level.medium">Orta</span></li>
-                            <li><span data-i18n="skills.mobile.item3">MVVM, Delegate, NotificationCenter</span><span class="skill-level" data-i18n="skills.level.medium">Orta</span></li>
-                            <li><span data-i18n="skills.mobile.item4">MapKit, CoreLocation</span><span class="skill-level" data-i18n="skills.level.medium">Orta</span></li>
+                            <li><span>Swift, UIKit</span><span class="skill-level">Orta</span></li>
+                            <li><span>Auto Layout, Programmatic UI</span><span class="skill-level">Orta</span></li>
+                            <li><span>MVVM, Delegate, NotificationCenter</span><span class="skill-level">Orta</span></li>
+                            <li><span>MapKit, CoreLocation</span><span class="skill-level">Orta</span></li>
                         </ul>
                     </div>
                     <div class="skill-col">
-                        <h3 data-i18n="skills.backend">Backend & Veri</h3>
+                        <h3>Backend & Veri</h3>
                         <ul class="skill-list">
-                            <li><span data-i18n="skills.backend.item1">Firebase (Auth, Firestore, Storage)</span><span class="skill-level" data-i18n="skills.level.medium">Orta</span></li>
-                            <li><span data-i18n="skills.backend.item2">REST API entegrasyonları</span><span class="skill-level" data-i18n="skills.level.beginner">Başlangıç</span></li>
-                            <li><span data-i18n="skills.backend.item3">Temel SQL & NoSQL kavramları</span><span class="skill-level" data-i18n="skills.level.beginner">Başlangıç</span></li>
+                            <li><span>Firebase (Auth, Firestore, Storage)</span><span class="skill-level">Orta</span></li>
+                            <li><span>REST API entegrasyonları</span><span class="skill-level">Başlangıç</span></li>
+                            <li><span>Temel SQL & NoSQL kavramları</span><span class="skill-level">Başlangıç</span></li>
                         </ul>
                     </div>
                     <div class="skill-col">
-                        <h3 data-i18n="skills.web">Web & Diğer</h3>
+                        <h3>Web & Diğer</h3>
                         <ul class="skill-list">
-                            <li><span data-i18n="skills.web.item1">HTML5, CSS3, JavaScript</span><span class="skill-level" data-i18n="skills.level.advanced">İleri</span></li>
-                            <li><span data-i18n="skills.web.item2">Git, GitHub, Xcode</span><span class="skill-level" data-i18n="skills.level.advanced">İleri</span></li>
-                            <li><span data-i18n="skills.web.item3">Blender ile 3D figür tasarımı</span><span class="skill-level" data-i18n="skills.level.medium">Orta</span></li>
+                            <li><span>HTML5, CSS3, JavaScript</span><span class="skill-level">İleri</span></li>
+                            <li><span>Git, GitHub, Xcode</span><span class="skill-level">İleri</span></li>
+                            <li><span>Blender ile 3D figür tasarımı</span><span class="skill-level">Orta</span></li>
                         </ul>
                     </div>
                 </div>
@@ -609,8 +297,8 @@
         <section id="experience" class="section">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2 data-i18n="exp.h2">Deneyim</h2>
-                    <p data-i18n="exp.p">Profesyonel ve proje bazlı deneyimlerim.</p>
+                    <h2>Deneyim</h2>
+                    <p>Profesyonel ve proje bazlı deneyimlerim.</p>
                 </div>
 
                 <div class="timeline">
@@ -618,16 +306,16 @@
                         <div class="timeline-badge"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 data-i18n="exp.tek.title">iOS Developer (Staj)</h3>
-                                <span class="timeline-company" data-i18n="exp.tek.company">Teknasyon – İstanbul</span>
+                                <h3>iOS Developer (Staj)</h3>
+                                <span class="timeline-company">Teknasyon – İstanbul</span>
                             </div>
                             <div class="timeline-meta">
-                                <span data-i18n="exp.tek.date">2025 • Staj</span>
+                                <span>2025 • Staj</span>
                             </div>
                             <ul>
-                                <li data-i18n="exp.tek.item1">Mevcut iOS uygulamalarında bug fix, feature geliştirme ve performans iyileştirmeleri yaptım.</li>
-                                <li data-i18n="exp.tek.item2">UIKit ile component bazlı tasarımlar, reusable view pattern’leri ve temiz kod pratikleri üzerinde çalıştım.</li>
-                                <li data-i18n="exp.tek.item3">Takım içinde code review süreçlerine dahil oldum, Git flow ve PR süreçlerine alıştım.</li>
+                                <li>Mevcut iOS uygulamalarında bug fix, feature geliştirme ve performans iyileştirmeleri yaptım.</li>
+                                <li>UIKit ile component bazlı tasarımlar, reusable view pattern’leri ve temiz kod pratikleri üzerinde çalıştım.</li>
+                                <li>Takım içinde code review süreçlerine dahil oldum, Git flow ve PR süreçlerine alıştım.</li>
                             </ul>
                         </div>
                     </article>
@@ -636,47 +324,19 @@
                         <div class="timeline-badge"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 data-i18n="exp.freelance.title">Freelance iOS Geliştirici</h3>
-                                <span class="timeline-company" data-i18n="exp.freelance.company">Bireysel</span>
+                                <h3>Freelance iOS Geliştirici</h3>
+                                <span class="timeline-company">Bireysel</span>
                             </div>
                             <div class="timeline-meta">
-                                <span data-i18n="exp.freelance.date">2024 – Devam ediyor</span>
+                                <span>2024 – Devam ediyor</span>
                             </div>
                             <ul>
-                                <li data-i18n="exp.freelance.item1">App Store’da yayınlanan kişisel projeler geliştirdim (Taskly, Stride vb.).</li>
-                                <li data-i18n="exp.freelance.item2">Kullanıcı dostu arayüzler, local notifications, premium özellik kurguları ve analitik entegrasyonları üzerinde çalıştım.</li>
-                                <li data-i18n="exp.freelance.item3">Performans, hata yönetimi ve kullanıcı geri bildirimlerine göre iteratif geliştirme yaptım.</li>
+                                <li>App Store’da yayınlanan kişisel projeler geliştirdim (Taskly, Stride vb.).</li>
+                                <li>Kullanıcı dostu arayüzler, local notifications, premium özellik kurguları ve analitik entegrasyonları üzerinde çalıştım.</li>
+                                <li>Performans, hata yönetimi ve kullanıcı geri bildirimlerine göre iteratif geliştirme yaptım.</li>
                             </ul>
                         </div>
                     </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- EMBED (Company Website) -->
-        <section id="company" class="section section-alt">
-            <div class="container reveal">
-                <div class="section-header">
-                    <h2 data-i18n="company.h2">Şirket</h2>
-                    <p data-i18n="company.p">Staj yaptığım şirketin web sitesini sayfadan çıkmadan inceleyebilirsin.</p>
-                </div>
-
-                <div class="embed-card" aria-label="Şirket web sitesi" data-i18n-attr="aria-label:company.aria.card">
-                    <div class="embed-head">
-                        <h3 data-i18n="company.embed.h3">Teknasyon</h3>
-                        <p data-i18n="company.embed.p">Teknasyon’un web sitesini buradan gezebilirsin.</p>
-                    </div>
-
-                    <div class="embed-frame">
-                        <iframe
-                            src="https://teknasyon.com/"
-                            title="Teknasyon - WebSite"
-                            data-i18n-attr="title:company.embed.iframeTitle"
-                            loading="lazy"
-                            referrerpolicy="no-referrer"
-                            sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
-                        ></iframe>
-                    </div>
                 </div>
             </div>
         </section>
@@ -685,8 +345,8 @@
         <section id="education" class="section">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2 data-i18n="edu.h2">Eğitim</h2>
-                    <p data-i18n="edu.p">Akademik geçmişim.</p>
+                    <h2>Eğitim</h2>
+                    <p>Akademik geçmişim.</p>
                 </div>
 
                 <div class="timeline">
@@ -694,14 +354,14 @@
                         <div class="timeline-badge"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 data-i18n="edu.topkapi.title">İstanbul Topkapı Üniversitesi</h3>
-                                <span class="timeline-company" data-i18n="edu.topkapi.department">Yönetim Bilişim Sistemleri (YBS)</span>
+                                <h2>İstanbul Topkapı Üniversitesi</h2>
+                                <span class="timeline-company">Yönetim Bilişim Sistemleri (YBS) </span>
                             </div>
                             <div class="timeline-meta">
-                                <span data-i18n="edu.topkapi.date">Lisans • 2024 – Devam ediyor • İstanbul</span>
+                                <span>Lisans • 2024 – Devam ediyor • İstanbul</span>
                             </div>
                             <ul>
-                                <li data-i18n="edu.topkapi.desc">İşletme, bilişim sistemleri, veri ve yazılım geliştirme alanlarını birleştiren disiplinler arası bir eğitim alıyorum. Öğrendiklerimi aktif projelerde kullanarak teoriyi pratikle birleştirmeye odaklanıyorum.</li>
+                                <li>İşletme, bilişim sistemleri, veri ve yazılım geliştirme alanlarını birleştiren disiplinler arası bir eğitim alıyorum. Öğrendiklerimi aktif projelerde kullanarak teoriyi pratikle birleştirmeye odaklanıyorum.</li>
                             </ul>
                         </div>
                     </article>
@@ -709,14 +369,14 @@
                         <div class="timeline-badge"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 data-i18n="edu.istanbul.title">İstanbul Üniversitesi</h3>
-                                <span class="timeline-company" data-i18n="edu.istanbul.department">Bilgisayar Programcılığı</span>
+                                <h2>İstanbul Üniversitesi</h2>
+                                <span class="timeline-company">Bilgisayar Programcılığı</span>
                             </div>
                             <div class="timeline-meta">
-                                <span data-i18n="edu.istanbul.date">Önlisans • 2023 – • İstanbul</span>
+                                <span>Önlisans • 2023 – • İstanbul</span>
                             </div>
                             <ul>
-                                <li data-i18n="edu.istanbul.desc">Bilgisayar programcılığı eğitimimde; yazılım temelleri, algoritmik düşünme ve veri odaklı uygulamalar üzerine yoğunlaşıyorum. Öğrendiklerimi projelere dönüştürerek pratik geliştirme deneyimi kazanıyor, modern teknolojilerle çözüm üretme yetkinliğimi artırıyorum.</li>
+                                <li>Bilgisayar programcılığı eğitimimde; yazılım temelleri, algoritmik düşünme ve veri odaklı uygulamalar üzerine yoğunlaşıyorum. Öğrendiklerimi projelere dönüştürerek pratik geliştirme deneyimi kazanıyor, modern teknolojilerle çözüm üretme yetkinliğimi artırıyorum.</li>
                             </ul>
                         </div>
                     </article>
@@ -728,22 +388,25 @@
         <section id="projects" class="section">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2 data-i18n="projects.h2">Projeler</h2>
-                    <p data-i18n="projects.p">Gerçek kullanıcıya dokunan, üzerinde çalıştığım uygulamalar.</p>
+                    <h2>Projeler</h2>
+                    <p>Gerçek kullanıcıya dokunan, üzerinde çalıştığım uygulamalar.</p>
                 </div>
 
                 <div class="projects-filters">
-                    <button class="filter-btn active" data-filter="all" data-i18n="projects.filter.all">Tümü</button>
-                    <button class="filter-btn" data-filter="ios" data-i18n="projects.filter.ios">iOS</button>
-                    <button class="filter-btn" data-filter="web" data-i18n="projects.filter.web">Web</button>
-                    <button class="filter-btn" data-filter="other" data-i18n="projects.filter.other">Diğer</button>
+                    <button class="filter-btn active" data-filter="all">Tümü</button>
+                    <button class="filter-btn" data-filter="ios">iOS</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="other">Diğer</button>
                 </div>
 
                 <div class="projects-grid">
                     <article class="project-card" data-category="ios">
-                        <div class="project-chip" data-i18n="projects.taskly.chip">iOS • App Store</div>
-                        <h3 data-i18n="projects.taskly.title">Taskly – Akıllı Görev Yöneticisi</h3>
-                        <p data-i18n="projects.taskly.desc">Görevleri kategori, emoji ve hatırlatıcılarla düzenleyen, minimal ve performanslı bir to-do uygulaması. Local notifications, Firebase senkronizasyonu ve çoklu tema desteği içeriyor.</p>
+                        <div class="project-chip">iOS • App Store</div>
+                        <h3>Taskly – Akıllı Görev Yöneticisi</h3>
+                        <p>
+                            Görevleri kategori, emoji ve hatırlatıcılarla düzenleyen, minimal ve performanslı bir to-do uygulaması.
+                            Local notifications, Firebase senkronizasyonu ve çoklu tema desteği içeriyor.
+                        </p>
                         <ul class="project-tech">
                             <li>Swift</li>
                             <li>UIKit</li>
@@ -751,16 +414,18 @@
                             <li>Local Notifications</li>
                         </ul>
                         <div class="project-links">
-                            <a href="/Project/Taskly/" data-i18n="projects.taskly.link.detail">Detay</a>
-                            <a href="https://apps.apple.com/tr/app/tasklyy/id6754032288?l=tr" target="_blank" data-i18n="projects.taskly.link.appstore">App Store</a>
-                            <a href="https://github.com/efebulbul/Taskly" target="_blank" data-i18n="projects.taskly.link.github">GitHub</a>
+                            <a href="/Project/Taskly/">Detay</a>
+                            <a href="https://apps.apple.com/tr/app/tasklyy/id6754032288?l=tr" target="_blank">App Store</a>
+                            <a href="https://github.com/efebulbul/Taskly" target="_blank">GitHub</a>
                         </div>
                     </article>
 
                     <article class="project-card" data-category="ios">
-                        <div class="project-chip" data-i18n="projects.stride.chip">iOS • Devam</div>
-                        <h3 data-i18n="projects.stride.title">Stride – Koşu & Aktivite Takibi</h3>
-                        <p data-i18n="projects.stride.desc">Koşu ve yürüyüşleri gerçek zamanlı izleyen, MapKit ile rota çizen, tempo, mesafe ve kalori takibi sunan bir fitness uygulaması.</p>
+                        <div class="project-chip">iOS • Devam</div>
+                        <h3>Stride – Koşu & Aktivite Takibi</h3>
+                        <p>
+                            Koşu ve yürüyüşleri gerçek zamanlı izleyen, MapKit ile rota çizen, tempo, mesafe ve kalori takibi sunan bir fitness uygulaması.
+                        </p>
                         <ul class="project-tech">
                             <li>Swift</li>
                             <li>UIKit</li>
@@ -768,36 +433,37 @@
                             <li>CoreLocation</li>
                         </ul>
                         <div class="project-links">
-                            <a href="/Project/Stride/" data-i18n="projects.stride.link.detail">Detay</a>
+                            <a href="/Project/Stride/">Detay</a>
                         </div>
                     </article>
 
                     <article class="project-card" data-category="other">
-                        <div class="project-chip" data-i18n="projects.article.chip">Medium Yazısı</div>
-                        <h3 data-i18n="projects.article.title">Apple Fitness tarzı 3D rozet sistemi (SwiftUI & RealityKit)</h3>
-                        <p data-i18n="projects.article.desc">Stride içinde USDZ tabanlı 3D başarı rozetlerini nasıl entegre ettiğimi anlattığım yazı.</p>
+                        <div class="project-chip">Üniversite Projesi</div>
+                        <h3>Otonom Arama-Kurtarma Dron Projesi</h3>
+                        <p>
+                            Afet senaryolarında termal kamera ve görüntü işleme kullanarak kayıp kişileri tespit etmeyi hedefleyen bir drone projesi.
+                        </p>
                         <ul class="project-tech">
-                            <li>RealityKit</li>
-                            <li>UIKit</li>
-                            <li>SwiftUI</li>
+                            <li>Python</li>
+                            <li>Computer Vision</li>
+                            <li>Prototipleme</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://efebulbul.medium.com/swiftui-ve-realitykit-ile-apple-fitness-tarz%C4%B1-3d-rozet-sistemi-olu%C5%9Fturmak-faf141ec96d7" target="_blank" rel="noopener" data-i18n="projects.article.link.read">Oku</a>
-                        </div>
                     </article>
 
                     <article class="project-card" data-category="web">
-                        <div class="project-chip" data-i18n="projects.cv.chip">Web</div>
-                        <h3 data-i18n="projects.cv.title">Kişisel CV & Portfolio Sitesi</h3>
-                        <p data-i18n="projects.cv.desc">HTML, CSS ve JavaScript ile hazırlanan, profesyonel kimliğimi yansıtan, responsive ve performanslı bir kişisel web sitesi.</p>
+                        <div class="project-chip">Web</div>
+                        <h3>Kişisel CV & Portfolio Sitesi</h3>
+                        <p>
+                            HTML, CSS ve JavaScript ile hazırlanan, profesyonel kimliğimi yansıtan, responsive ve performanslı bir kişisel web sitesi.
+                        </p>
                         <ul class="project-tech">
                             <li>HTML</li>
                             <li>CSS (Flex/Grid)</li>
                             <li>JavaScript</li>
                         </ul>
                         <div class="project-links">
-                            <a href="#" target="_blank" data-i18n="projects.cv.link.live">Canlı Demo</a>
-                            <a href="#" target="_blank" data-i18n="projects.cv.link.github">GitHub</a>
+                            <a href="#" target="_blank">Canlı Demo</a>
+                            <a href="#" target="_blank">GitHub</a>
                         </div>
                     </article>
                 </div>
@@ -805,196 +471,109 @@
         </section>
 
         <!-- NEWS -->
-        <section id="news" class="section section-alt">
+        <section id="news" class="section">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2 data-i18n="news.h2">Güncel Haberler</h2>
-                    <p data-i18n="news.p">Paylaştığım içerikler, güncellemeler ve duyurular.</p>
+                    <h2>Güncel Haberler</h2>
+                    <p>Ürün güncellemeleri, yazılar ve paylaşımlar.</p>
                 </div>
 
-                <div class="news-grid" aria-label="Haberler listesi" data-i18n-attr="aria-label:news.aria.list">
-                    <article class="news-card">
-                        <div class="news-media">
-                            <img class="news-thumb" src="news-1.png" alt="Apple Fitness tarzı 3D rozet" loading="lazy">
+                <div class="news-grid">
+                    <a class="news-card" href="#" target="_blank" rel="noreferrer" aria-label="Apple Fitness tarzı 3D rozet sistemi yaptım!">
+                        <img class="news-image" src="news-1.png" alt="Apple Fitness tarzı 3D rozet sistemi" loading="lazy">
+                        <div class="news-body">
+                            <div class="news-meta">
+                                <span class="news-badge">Medium</span>
+                                <span class="news-date">22 Ocak 2026</span>
+                            </div>
+                            <h3 class="news-title">Apple Fitness tarzı 3D rozet sistemi yaptım!</h3>
+                            <p class="news-desc">Stride için Blender + RealityKit ile 3D badge (bronz/gümüş/altın) sistemi tasarladım ve iOS’ta gösterimini kurguladım.</p>
                         </div>
-                        <div class="news-meta">
-                            <span data-i18n="news.card1.meta">Medium</span>
-                            <span>—</span>
-                        </div>
-                        <h3 class="news-title" data-i18n="news.card1.title">Apple Fitness tarzı 3D rozet sistemi (SwiftUI & RealityKit)</h3>
-                        <p class="news-desc" data-i18n="news.card1.desc">Stride içinde USDZ tabanlı 3D başarı rozetlerini nasıl entegre ettiğimi anlattığım yazı.</p>
-                        <a class="news-link" href="https://efebulbul.medium.com/swiftui-ve-realitykit-ile-apple-fitness-tarz%C4%B1-3d-rozet-sistemi-olu%C5%9Fturmak-faf141ec96d7" target="_blank" rel="noopener" aria-label="Haberi aç"></a>
-                    </article>
+                    </a>
 
-                    <article class="news-card">
-                        <div class="news-media">
-                            <img class="news-thumb" src="news-2.jpg" alt="LinkedIn paylaşımı" loading="lazy">
+                    <a class="news-card" href="https://apps.apple.com/tr/app/tasklyy/id6754032288?l=tr" target="_blank" rel="noreferrer" aria-label="TasklyX Yayında – Yılbaşı Konsepti!">
+                        <img class="news-image" src="news-2.jpg" alt="TasklyX yayında" loading="lazy">
+                        <div class="news-body">
+                            <div class="news-meta">
+                                <span class="news-badge">App Store</span>
+                                <span class="news-date">19 Ocak 2026</span>
+                            </div>
+                            <h3 class="news-title">TasklyX Yayında – Yılbaşı Konsepti!</h3>
+                            <p class="news-desc">TasklyX v1.0.3 güncellemesiyle yılbaşı konsepti, performans iyileştirmeleri ve küçük UI dokunuşları yayında.</p>
                         </div>
-                        <div class="news-meta">
-                            <span data-i18n="news.card2.meta">App Store</span>
-                            <span>—</span>
-                        </div>
-                        <h3 class="news-title" data-i18n="news.card2.title">TasklyX Yayında Yılbaşı Konsepti</h3>
-                        <p class="news-desc" data-i18n="news.card2.desc">Yapımını üstlendiğim TasklyX için v1.0.3 Yılbaşı Konseptiyle karşınızdayız!</p>
-                        <a class="news-link" href="https://apps.apple.com/tr/app/tasklyy/id6754032288?l=tr" target="_blank" rel="noopener" aria-label="Haberi aç"></a>
-                    </article>
+                    </a>
 
-                    <article class="news-card">
-                        <div class="news-media">
-                            <img class="news-thumb" src="news-3.jpeg" alt="Taskly ve Stride güncellemeleri" loading="lazy">
+                    <a class="news-card" href="https://www.apple.com/tr/newsroom/2025/11/apple-announces-finalists-for-the-2025-app-store-awards/" target="_blank" rel="noreferrer" aria-label="2025 App Store Ödülü kazananları açıklandı!">
+                        <img class="news-image" src="news-3.jpeg" alt="2025 App Store Ödülleri" loading="lazy">
+                        <div class="news-body">
+                            <div class="news-meta">
+                                <span class="news-badge">Apple</span>
+                                <span class="news-date">5 Aralık 2025</span>
+                            </div>
+                            <h3 class="news-title">2025 App Store Ödülü kazananları açıklandı!</h3>
+                            <p class="news-desc">Apple’ın yılın en iyi uygulama ve oyunlarını açıkladığı App Store Awards listesine göz attım ve öne çıkanları not aldım.</p>
                         </div>
-                        <div class="news-meta">
-                            <span data-i18n="news.card3.meta">Apple Developer</span>
-                            <span>—</span>
-                        </div>
-                        <h3 class="news-title" data-i18n="news.card3.title">App Store 2025 Ödülü kazananları açıklandı.</h3>
-                        <p class="news-desc" data-i18n="news.card3.desc">Dünyanın dört bir yanından gelen bu geliştiricilerin App Store projeleri.</p>
-                        <a class="news-link" href="https://developer.apple.com/app-store/app-store-awards-2025/" target="_blank" rel="noopener" aria-label="Haberi aç"></a>
-                    </article>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- SCHEDULE -->
-        <section id="schedule" class="section">
+        <!-- FINANCE -->
+        <section id="finance" class="section section-alt">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2 data-i18n="schedule.h2">Program</h2>
+                    <h2>Finans & Portföy</h2>
+                    <p>Veri odaklı portföy takibi ve piyasa analiziyle ilgileniyorum.</p>
                 </div>
 
-                <div class="schedule-board" aria-label="Haftalık program" data-i18n-attr="aria-label:schedule.aria.board">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                        Sermaye piyasalarıyla ilgileniyor; portföy dağılımı, risk yönetimi ve performans ölçümü üzerine veri odaklı takipler yapıyorum. Farklı senaryolar altında risk/ödül dengesini değerlendirmek, sonuçları ölçmek ve bunları düzenli olarak analiz etmek bu sürecin temel parçalarını oluşturuyor. Bu yaklaşım, yazılım geliştirme sürecinde de benimsediğim analitik düşünme biçimini, metriklerle ilerleme ve ölçülebilir karar alma alışkanlığımı doğrudan destekliyor. Veriye dayalı değerlendirme yapmanın hem finansal hem de teknik projelerde sürdürülebilir sonuçlar ürettiğine inanıyorum.
 
-                    <div class="schedule-days" aria-hidden="true">
-                        <div class="schedule-day" data-i18n="schedule.day.mon">Pazartesi</div>
-                        <div class="schedule-day" data-i18n="schedule.day.tue">Salı</div>
-                        <div class="schedule-day" data-i18n="schedule.day.wed">Çarşamba</div>
-                        <div class="schedule-day" data-i18n="schedule.day.thu">Perşembe</div>
-                        <div class="schedule-day" data-i18n="schedule.day.fri">Cuma</div>
+                        </p>
+                        <p class="footer-secondary" style="margin-top: 10px;">
+                            Not: Buradaki içerikler yatırım tavsiyesi değildir.
+                        </p>
                     </div>
 
-                    <div class="schedule-cols">
-                        <!-- Pazartesi -->
-                        <div class="schedule-col" aria-label="Pazartesi">
-                            <div class="schedule-item schedule-item--class">
-                                <div class="schedule-time">09:00 - 12:00</div>
-                                <div class="schedule-title" data-i18n="schedule.mon.item1.title">Organizational Data Management</div>
-                                <div class="schedule-sub">IMS261</div>
-                            </div>
-                            <div class="schedule-item schedule-item--class">
-                                <div class="schedule-time">12:00 - 15:00</div>
-                                <div class="schedule-title" data-i18n="schedule.mon.item2.title">Management & Organization</div>
-                                <div class="schedule-sub">IMS263</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="schedule-time">19:00 - 22:00</div>
-                                <div class="schedule-title"><span data-i18n="schedule.gym">Gym / Koşu</span></div>
-                            </div>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <span class="highlight-label">Odak</span>
+                            <p class="highlight-value">Portföy takibi, risk yönetimi, performans analizi</p>
                         </div>
-
-                        <!-- Salı -->
-                        <div class="schedule-col" aria-label="Salı">
-                            <div class="schedule-item schedule-item--class">
-                                <div class="schedule-time">09:00 - 12:00</div>
-                                <div class="schedule-title" data-i18n="schedule.tue.item1.title">Data Structure & Database Management Systems</div>
-                                <div class="schedule-sub">IMS201</div>
-                            </div>
-                            <div class="schedule-item schedule-item--class">
-                                <div class="schedule-time">14:00 - 17:00</div>
-                                <div class="schedule-title" data-i18n="schedule.tue.item2.title">Marketing Management</div>
-                                <div class="schedule-sub">IMS209</div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="schedule-time">19:00 - 22:00</div>
-                                <div class="schedule-title"><span data-i18n="schedule.study">Öğrenme</span></div>
-                            </div>
+                        <div class="highlight-card">
+                            <span class="highlight-label">Rutin</span>
+                            <p class="highlight-value">Haftalık/aylık takip, notlar, hedef & disiplin</p>
                         </div>
-
-                        <!-- Çarşamba -->
-                        <div class="schedule-col" aria-label="Çarşamba">
-                            <div class="schedule-item schedule-item--work">
-                                <div class="schedule-time">09:00 - 18:00</div>
-                                <div class="schedule-title"><span data-i18n="schedule.work">Staj/İOS</span></div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="schedule-time">19:00 - 22:00</div>
-                                <div class="schedule-title"><span data-i18n="schedule.rest">Dinlenme</span></div>
-                            </div>
+                        <div class="highlight-card">
+                            <span class="highlight-label">Yaklaşım</span>
+                            <p class="highlight-value">Veri odaklı, ölçülebilir ve sürdürülebilir</p>
                         </div>
-
-                        <!-- Perşembe -->
-                        <div class="schedule-col" aria-label="Perşembe">
-                            <div class="schedule-item schedule-item--class">
-                                <div class="schedule-time">09:00 - 12:00</div>
-                                <div class="schedule-title" data-i18n="schedule.thu.item1.title">Web Design & Internet Programming</div>
-                                <div class="schedule-sub">IMS207</div>
-                            </div>
-                            <div class="schedule-item schedule-item--work">
-                                <div class="schedule-time">13:00 - 18:00</div>
-                                <div class="schedule-title"><span data-i18n="schedule.work">Staj/İOS</span></div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="schedule-time">19:00 - 22:00</div>
-                                <div class="schedule-title"><span data-i18n="schedule.study">Öğrenme</span></div>
-                            </div>
-                        </div>
-
-                        <!-- Cuma -->
-                        <div class="schedule-col" aria-label="Cuma">
-                            <div class="schedule-item schedule-item--work">
-                                <div class="schedule-time">09:00 - 18:00</div>
-                                <div class="schedule-title"><span data-i18n="schedule.work">Staj/İOS</span></div>
-                            </div>
-                            <div class="schedule-item">
-                                <div class="schedule-time">19:00 - 22:00</div>
-                                <div class="schedule-title"><span data-i18n="schedule.rest">Dinlenme</span></div>
-                            </div>
-                        </div>
-
                     </div>
-
                 </div>
             </div>
         </section>
-        
-        
 
         <!-- CONTACT -->
         <section id="contact" class="section section-alt">
             <div class="container reveal">
                 <div class="section-header">
-                    <h2 data-i18n="contact.h2">İletişim</h2>
-                    <p data-i18n="contact.p">Proje, staj veya iş fırsatları için benimle iletişime geçebilirsiniz.</p>
+                    <h2>İletişim</h2>
+                    <p>Proje, staj veya iş fırsatları için benimle iletişime geçebilirsiniz.</p>
                 </div>
 
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <p data-i18n="contact.info">
+                        <p>
                             iOS geliştirme, ürün odaklı projeler, girişimcilik ve teknoloji tabanlı iş fikirleri üzerine
                             konuşmak isterseniz bana e-posta gönderebilir veya LinkedIn üzerinden ulaşabilirsiniz.
                         </p>
                         <ul class="contact-list">
-                            <li>
-                                <strong data-i18n="contact.label.email">Email:</strong>
-                                <a class="contact-link" href="mailto:info@efebulbul.com">info@efebulbul.com</a>
-                            </li>
-                            <li>
-                                <strong data-i18n="contact.label.location">Lokasyon:</strong>
-                                <a class="contact-link" href="https://www.google.com/maps?q=Istanbul%2C%20Turkey" target="_blank" rel="noopener">
-                                    <span data-i18n="contact.value.location">İstanbul, Türkiye</span>
-                                </a>
-                            </li>
-                            <li>
-                                <strong data-i18n="contact.label.linkedin">LinkedIn:</strong>
-                                <a class="contact-link" href="https://www.linkedin.com/in/efe-bulbul-562464237/" target="_blank" rel="noopener">
-                                    <span data-i18n="contact.value.linkedin">/efebulbul</span>
-                                </a>
-                            </li>
-                            <li>
-                                <strong data-i18n="contact.label.github">GitHub:</strong>
-                                <a class="contact-link" href="https://github.com/efebulbul" target="_blank" rel="noopener">
-                                    <span data-i18n="contact.value.github">/efebulbul</span>
-                                </a>
-                            </li>
+                            <li><strong>Email:</strong> info@efebulbul.com</li>
+                            <li><strong>Lokasyon:</strong> İstanbul, Türkiye</li>
+                            <li><strong>LinkedIn:</strong> /efebulbul</li>
+                            <li><strong>GitHub:</strong> /efebulbul</li>
                         </ul>
                     </div>
 
@@ -1008,23 +587,23 @@
                         >
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="name" data-i18n="form.name">Ad Soyad</label>
-                                    <input type="text" id="name" name="name" required data-i18n-placeholder="form.ph.name" />
+                                    <label for="name">Ad Soyad</label>
+                                    <input type="text" id="name" name="name" required />
                                 </div>
                                 <div class="form-field">
-                                    <label for="email" data-i18n="form.email">E-posta</label>
-                                    <input type="email" id="email" name="email" required data-i18n-placeholder="form.ph.email" />
+                                    <label for="email">E-posta</label>
+                                    <input type="email" id="email" name="email" required />
                                 </div>
                             </div>
                             <div class="form-field">
-                                <label for="subject" data-i18n="form.subject">Konu</label>
-                                <input type="text" id="subject" name="subject" required data-i18n-placeholder="form.ph.subject" />
+                                <label for="subject">Konu</label>
+                                <input type="text" id="subject" name="subject" required />
                             </div>
                             <div class="form-field">
-                                <label for="message" data-i18n="form.message">Mesaj</label>
-                                <textarea id="message" name="message" rows="4" required data-i18n-placeholder="form.ph.message"></textarea>
+                                <label for="message">Mesaj</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
                             </div>
-                            <button type="submit" class="btn primary full-width" data-i18n="form.submit">Mesajı Gönder</button>
+                            <button type="submit" class="btn primary full-width">Mesajı Gönder</button>
                             <p id="form-status" class="form-status" aria-live="polite"></p>
                         </form>
                     </div>
@@ -1035,8 +614,8 @@
 
     <footer class="site-footer">
         <div class="container footer-container">
-            <p>© <span id="year"></span> Efe Bülbül. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
-            
+            <p>© <span id="year"></span> Efe Bülbül. Tüm hakları saklıdır.</p>
+            <p class="footer-secondary">Bu site HTML, CSS ve JavaScript ile el yapımı olarak tasarlanmıştır.</p>
         </div>
     </footer>
 

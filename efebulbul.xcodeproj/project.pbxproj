@@ -13,14 +13,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8884E03F2F0118FA00A746BB /* Finance */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Finance;
-			sourceTree = "<group>";
-		};
 		8884E1822F01664400A746BB /* Project */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Project;
+			sourceTree = "<group>";
+		};
+		88BE8DD72F2D1C69000D2303 /* Finance */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Finance;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -30,10 +30,10 @@
 			isa = PBXGroup;
 			children = (
 				8884E1822F01664400A746BB /* Project */,
-				8884E03F2F0118FA00A746BB /* Finance */,
-				88A593F52EC934FF0085FFB8 /* index.html */,
+				88BE8DD72F2D1C69000D2303 /* Finance */,
 				88A593F62EC935100085FFB8 /* style.css */,
 				88A593F72EC935210085FFB8 /* script.js */,
+				88A593F52EC934FF0085FFB8 /* index.html */,
 			);
 			sourceTree = "<group>";
 		};
