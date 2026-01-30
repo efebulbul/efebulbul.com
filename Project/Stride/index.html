@@ -7,7 +7,7 @@
   <meta name="description" content="Stride — Koşu & aktivite takibi. Harita, istatistikler ve teknik detaylar." />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    /* Nav dropdown (desktop hover) */
+    /* Finance dropdown (desktop hover) */
     .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
 
     .nav-dropdown-menu {
@@ -72,21 +72,26 @@
       </div>
 
       <nav class="nav">
-        <a href="#hero" class="nav-link">Ana Sayfa</a>
-        <a href="#about" class="nav-link">Hakkımda</a>
-        <a href="#skills" class="nav-link">Yetenekler</a>
-        <a href="#experience" class="nav-link">Deneyim</a>
+        <a href="/#hero" class="nav-link">Ana Sayfa</a>
+        <a href="/#about" class="nav-link">Hakkımda</a>
+        <a href="/#skills" class="nav-link">Yetenekler</a>
+        <a href="/#experience" class="nav-link">Deneyim</a>
         <div class="nav-dropdown">
-          <a href="#projects" class="nav-link nav-drop-toggle">Projeler</a>
+          <a href="/#projects" class="nav-link nav-drop-toggle">Projeler</a>
           <div class="nav-dropdown-menu" role="menu" aria-label="Projeler menüsü">
-            <a href="#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
+            <a href="/#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
             <a href="/Project/Taskly/" class="nav-dropdown-item" role="menuitem">Taskly</a>
             <a href="/Project/Stride/" class="nav-dropdown-item" role="menuitem">Stride</a>
           </div>
         </div>
-        <a href="#news" class="nav-link">Haberler</a>
-        <a href="#schedule" class="nav-link">Program</a>
-        <a href="#contact" class="nav-link">İletişim</a>
+        <div class="nav-dropdown">
+          <a href="/#finance" class="nav-link nav-drop-toggle">Finans</a>
+          <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
+            <a href="/#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
+            <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
+          </div>
+        </div>
+        <a href="/#contact" class="nav-link">İletişim</a>
       </nav>
 
       <div class="header-actions">
@@ -101,15 +106,15 @@
     </div>
 
     <nav class="nav nav-mobile" id="mobile-nav">
-      <a href="#hero" class="nav-link">Ana Sayfa</a>
-      <a href="#about" class="nav-link">Hakkımda</a>
-      <a href="#skills" class="nav-link">Yetenekler</a>
-      <a href="#experience" class="nav-link">Deneyim</a>
-      <a href="#projects" class="nav-link">Projeler (Ana Sayfa)</a>
+      <a href="/#hero" class="nav-link">Ana Sayfa</a>
+      <a href="/#about" class="nav-link">Hakkımda</a>
+      <a href="/#skills" class="nav-link">Yetenekler</a>
+      <a href="/#experience" class="nav-link">Deneyim</a>
+      <a href="/#projects" class="nav-link">Projeler (Ana Sayfa)</a>
       <a href="/Project/Taskly/" class="nav-link">Taskly</a>
       <a href="/Project/Stride/" class="nav-link">Stride</a>
-      <a href="#news" class="nav-link">Haberler</a>
-      <a href="#schedule" class="nav-link">Program</a>
+      <a href="/#finance" class="nav-link">Finans</a>
+      <a href="/Finance/" class="nav-link">Portföy Takibi</a>
       <a href="#contact" class="nav-link">İletişim</a>
     </nav>
 
@@ -126,7 +131,7 @@
 
         <div class="hero-actions">
           <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Case Study (yakında)</a>
-          <a class="btn ghost" href="#projects">← Projelere Dön</a>
+          <a class="btn ghost" href="/#projects">← Projelere Dön</a>
         </div>
       </div>
     </section>
@@ -244,7 +249,7 @@
       "desc": "Geçmiş koşularını listeler, özet metrikleri görür ve seçtiğin koşunun detaylarına inersin."
     },
     {
-      "src": "yakinda.jpg",
+      "src": "yakinda.jpg,
       "caption": "Statistics",
       "desc": "Hafta/ay/yıl periyotlarında toplam mesafe, süre, kalori ve tempo gibi metrikleri grafiklerle analiz edersin."
     }

@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Taskly | Efe Bülbül</title>
   <meta name="description" content="Taskly — Akıllı görev yöneticisi. Özellikler, ekranlar ve teknik detaylar." />
-  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="/style.css" />
   <style>
-  /* Nav dropdown (desktop hover) */
+  /* Finance dropdown (desktop hover) */
   .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
 
   .nav-dropdown-menu {
@@ -67,7 +67,7 @@
     <div class="container nav-container">
       <div class="logo">
         <span class="logo-mark">
-          <img src="../../efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
+          <img src="/efebulbul.jpeg" alt="Efe Bülbül" class="avatar-img">
         </span>
         <span class="logo-text">Efe Bülbül</span>
       </div>
@@ -78,15 +78,20 @@
           <a href="/#skills" class="nav-link">Yetenekler</a>
           <a href="/#experience" class="nav-link">Deneyim</a>
           <div class="nav-dropdown">
-            <a href="/#projects" class="nav-link nav-drop-toggle">Projeler</a>
+            <a href="/#Projects" class="nav-link nav-drop-toggle">Projeler</a>
             <div class="nav-dropdown-menu" role="menu" aria-label="Projeler menüsü">
               <a href="/#projects" class="nav-dropdown-item" role="menuitem">Projeler</a>
               <a href="/Project/Taskly/" class="nav-dropdown-item" role="menuitem">Taskly</a>
               <a href="/Project/Stride/" class="nav-dropdown-item" role="menuitem">Stride</a>
             </div>
           </div>
-          <a href="/#news" class="nav-link">Haberler</a>
-          <a href="/#schedule" class="nav-link">Program</a>
+          <div class="nav-dropdown">
+            <a href="/#finance" class="nav-link nav-drop-toggle">Finans</a>
+            <div class="nav-dropdown-menu" role="menu" aria-label="Finans menüsü">
+              <a href="/#finance" class="nav-dropdown-item" role="menuitem">Finans</a>
+              <a href="/Finance/" class="nav-dropdown-item" role="menuitem">Portföy Takibi</a>
+            </div>
+          </div>
           <a href="/#contact" class="nav-link">İletişim</a>
       </nav>
 
@@ -106,11 +111,11 @@
       <a href="/#about" class="nav-link">Hakkımda</a>
       <a href="/#skills" class="nav-link">Yetenekler</a>
       <a href="/#experience" class="nav-link">Deneyim</a>
-      <a href="/#projects" class="nav-link">Projeler (Ana Sayfa)</a>
+      <a href="/#Projects" class="nav-link">Projeler (Ana Sayfa)</a>
       <a href="/Project/Taskly/" class="nav-link active">Taskly</a>
       <a href="/Project/Stride/" class="nav-link">Stride</a>
-      <a href="/#news" class="nav-link">Haberler</a>
-      <a href="/#schedule" class="nav-link">Program</a>
+      <a href="/#finance" class="nav-link">Finans</a>
+      <a href="/Finance/" class="nav-link">Portföy Takibi</a>
       <a href="/#contact" class="nav-link">İletişim</a>
     </nav>
   </header>
@@ -193,14 +198,14 @@
               <img
                 class="phone-screen-img"
                 data-demo-img
-                src="sim1.png"
+    
                 alt="Taskly ekran görüntüsü"
               />
 
               <!-- Görsel yoksa gösterilecek alan -->
               <div class="phone-screen-missing" aria-hidden="true">
                 <div class="missing-title">Ekran görüntüsü ekle</div>
-                <div class="missing-subtitle">sim1.png</div>
+                <div class="missing-subtitle">assets/tasklyy/01.png</div>
               </div>
             </div>
           </div>
@@ -208,10 +213,19 @@
           <!-- Sağ Panel -->
           <div class="phone-demo-panel">
             <div class="phone-demo-title">Taskly akışı</div>
-            <div class="phone-demo-subtitle" data-demo-caption>Ana Sayfa</div>
+            <div class="phone-demo-subtitle">Ana Sayfa</div>
             <div class="phone-demo-desc" data-demo-desc>
               Ana sayfada görevlerini kategori + emoji ile görür, tamamlandı durumunu yönetir ve hızlıca düzenlersin.
             </div>
+            <div class="phone-demo-subtitle">Yeni Görev</div>
+            <div class="phone-demo-desc" data-demo-desc>
+                Yeni görev ekleme ekranında başlık, kategori/emoji, tarih-saat ve hatırlatıcı seçeneklerini belirleyip kaydedersin.
+            </div>
+            <div class="phone-demo-subtitle">Ayarlar</div>
+            <div class="phone-demo-desc" data-demo-desc>
+                Ayarlar bölümünde tema seçimi, dil ayarları, bildirim izinleri ve uygulamaya dair genel tercihleri kişiselleştirebilirsin.            </div>
+
+            
 
             <div class="phone-demo-controls">
               <button class="btn ghost" type="button" data-demo-prev>←</button>
@@ -320,6 +334,6 @@
     </div>
   </footer>
 
-  <script src="../../script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
