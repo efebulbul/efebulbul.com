@@ -63,6 +63,110 @@
   @media (max-width: 900px) {
     .nav-dropdown-menu { display: none !important; }
   }
+
+  /* News slider */
+  .news-slider-shell {
+    position: relative;
+    overflow: visible;
+  }
+  #news {
+    overflow: visible;
+  }
+
+  .news-slider-header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-top: 8px;
+  }
+
+  .news-slider-button {
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+  }
+
+  .news-slider-button:hover {
+    transform: translateY(-1px);
+    background: rgba(0, 107, 255, 0.10);
+  }
+
+  .news-slider-button:disabled {
+    opacity: 0.85;
+    cursor: default;
+    transform: none;
+  }
+
+  .news-slider-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .news-slider-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .news-slider-track .news-card {
+    flex: 0 0 calc((100% - 40px) / 3);
+    width: calc((100% - 40px) / 3);
+    scroll-snap-align: start;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .news-slider-track .news-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .news-slider-track .news-title {
+    min-height: 2.8em;
+  }
+
+  @media (max-width: 1024px) {
+    .news-slider-track .news-card {
+      flex-basis: calc((100% - 20px) / 2);
+      width: calc((100% - 20px) / 2);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .news-slider-track {
+      gap: 16px;
+    }
+
+    .news-slider-track .news-card {
+      flex-basis: 88vw;
+      width: 88vw;
+    }
+
+    .news-slider-button {
+      width: 42px;
+      height: 42px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -477,42 +581,61 @@
                     <p>Ürün güncellemeleri, yazılar ve paylaşımlar.</p>
                 </div>
 
-                <div class="news-grid">
-                    <a class="news-card" href="https://efebulbul.medium.com/swiftui-ve-realitykit-ile-apple-fitness-tarz%C4%B1-3d-rozet-sistemi-olu%C5%9Fturmak-faf141ec96d7" target="_blank" rel="noreferrer" aria-label="Apple Fitness tarzı 3D rozet sistemi yaptım!">
-                        <img class="news-image" src="news-1.png" alt="Apple Fitness tarzı 3D rozet sistemi" loading="lazy">
-                        <div class="news-body">
-                            <div class="news-meta">
-                                <span class="news-badge">Medium</span>
-                                <span class="news-date">22 Ocak 2026</span>
-                            </div>
-                            <h3 class="news-title">Apple Fitness tarzı 3D rozet sistemi yaptım!</h3>
-                            <p class="news-desc">Stride için Blender + RealityKit ile 3D badge (bronz/gümüş/altın) sistemi tasarladım ve iOS’ta gösterimini kurguladım.</p>
-                        </div>
-                    </a>
+                <div class="news-slider-shell">
+                    <div class="news-slider-header">
+                        <button class="news-slider-button" id="news-prev" type="button" aria-label="Daha yeni haberlere git">←</button>
+                        <button class="news-slider-button" id="news-next" type="button" aria-label="Daha eski haberlere git">→</button>
+                    </div>
 
-                    <a class="news-card" href="https://apps.apple.com/tr/app/tasklyy/id6754032288?l=tr" target="_blank" rel="noreferrer" aria-label="TasklyX Yayında – Yılbaşı Konsepti!">
-                        <img class="news-image" src="news-2.jpg" alt="TasklyX yayında" loading="lazy">
-                        <div class="news-body">
-                            <div class="news-meta">
-                                <span class="news-badge">App Store</span>
-                                <span class="news-date">19 Ocak 2026</span>
+                    <div class="news-slider-track" id="news-track">
+                        <a class="news-card" href="https://efebulbul.medium.com/swift-ile-mapkit-üzerinde-ghost-runner-hayalet-koşucu-sistemi-oluşturmak-ac78f2d18023" target="_blank" rel="noreferrer" aria-label="MapKit ile Ghost Runner sistemi geliştirdim">
+                            <img class="news-image" src="GhostRunnerEfeBulbul.jpg" alt="MapKit ile Ghost Runner sistemi" loading="lazy">
+                            <div class="news-body">
+                                <div class="news-meta">
+                                    <span class="news-badge">Medium</span>
+                                    <span class="news-date">22 Mart 2026</span>
+                                </div>
+                                <h3 class="news-title">MapKit ile Ghost Runner sistemi geliştirdim</h3>
+                                <p class="news-desc">Stride içinde, kullanıcının önceki koşusuna karşı yarışabilmesini sağlayan Ghost Runner sistemini ve teknik altyapısını anlattım.</p>
                             </div>
-                            <h3 class="news-title">TasklyX Yayında – Yılbaşı Konsepti!</h3>
-                            <p class="news-desc">TasklyX v1.0.3 güncellemesiyle yılbaşı konsepti, performans iyileştirmeleri ve küçük UI dokunuşları yayında.</p>
-                        </div>
-                    </a>
+                        </a>
 
-                    <a class="news-card" href="https://www.apple.com/tr/newsroom/2025/11/apple-announces-finalists-for-the-2025-app-store-awards/" target="_blank" rel="noreferrer" aria-label="2025 App Store Ödülü kazananları açıklandı!">
-                        <img class="news-image" src="news-3.jpeg" alt="2025 App Store Ödülleri" loading="lazy">
-                        <div class="news-body">
-                            <div class="news-meta">
-                                <span class="news-badge">Apple</span>
-                                <span class="news-date">5 Aralık 2025</span>
+                        <a class="news-card" href="https://efebulbul.medium.com/swiftui-ve-realitykit-ile-apple-fitness-tarz%C4%B1-3d-rozet-sistemi-olu%C5%9Fturmak-faf141ec96d7" target="_blank" rel="noreferrer" aria-label="Apple Fitness tarzı 3D rozet sistemi yaptım!">
+                            <img class="news-image" src="news-1.png" alt="Apple Fitness tarzı 3D rozet sistemi" loading="lazy">
+                            <div class="news-body">
+                                <div class="news-meta">
+                                    <span class="news-badge">Medium</span>
+                                    <span class="news-date">22 Ocak 2026</span>
+                                </div>
+                                <h3 class="news-title">Apple Fitness tarzı 3D rozet sistemi yaptım!</h3>
+                                <p class="news-desc">Stride için Blender + RealityKit ile 3D badge (bronz/gümüş/altın) sistemi tasarladım ve iOS’ta gösterimini kurguladım.</p>
                             </div>
-                            <h3 class="news-title">2025 App Store Ödülü kazananları açıklandı!</h3>
-                            <p class="news-desc">Apple’ın yılın en iyi uygulama ve oyunlarını açıkladığı App Store Awards listesine göz attım ve öne çıkanları not aldım.</p>
-                        </div>
-                    </a>
+                        </a>
+
+                        <a class="news-card" href="https://apps.apple.com/tr/app/tasklyy/id6754032288?l=tr" target="_blank" rel="noreferrer" aria-label="TasklyX Yayında – Yılbaşı Konsepti!">
+                            <img class="news-image" src="news-2.jpg" alt="TasklyX yayında" loading="lazy">
+                            <div class="news-body">
+                                <div class="news-meta">
+                                    <span class="news-badge">App Store</span>
+                                    <span class="news-date">19 Ocak 2026</span>
+                                </div>
+                                <h3 class="news-title">TasklyX Yayında – Yılbaşı Konsepti!</h3>
+                                <p class="news-desc">TasklyX v1.0.3 güncellemesiyle yılbaşı konsepti, performans iyileştirmeleri ve küçük UI dokunuşları yayında.</p>
+                            </div>
+                        </a>
+
+                        <a class="news-card" href="https://www.apple.com/tr/newsroom/2025/11/apple-announces-finalists-for-the-2025-app-store-awards/" target="_blank" rel="noreferrer" aria-label="2025 App Store Ödülü kazananları açıklandı!">
+                            <img class="news-image" src="news-3.jpeg" alt="2025 App Store Ödülleri" loading="lazy">
+                            <div class="news-body">
+                                <div class="news-meta">
+                                    <span class="news-badge">Apple</span>
+                                    <span class="news-date">5 Aralık 2025</span>
+                                </div>
+                                <h3 class="news-title">2025 App Store Ödülü kazananları açıklandı!</h3>
+                                <p class="news-desc">Apple’ın yılın en iyi uygulama ve oyunlarını açıkladığı App Store Awards listesine göz attım ve öne çıkanları not aldım.</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -618,6 +741,41 @@
         </div>
     </footer>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const track = document.getElementById('news-track');
+        const prevBtn = document.getElementById('news-prev');
+        const nextBtn = document.getElementById('news-next');
+
+        if (!track || !prevBtn || !nextBtn) return;
+
+        const getStep = () => {
+          const firstCard = track.querySelector('.news-card');
+          if (!firstCard) return 320;
+          const styles = window.getComputedStyle(track);
+          const gap = parseFloat(styles.columnGap || styles.gap || '20') || 20;
+          return firstCard.getBoundingClientRect().width + gap;
+        };
+
+        const updateButtonState = () => {
+          const maxScrollLeft = track.scrollWidth - track.clientWidth;
+          prevBtn.disabled = track.scrollLeft <= 4;
+          nextBtn.disabled = track.scrollLeft >= maxScrollLeft - 4;
+        };
+
+        prevBtn.addEventListener('click', function () {
+          track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', function () {
+          track.scrollBy({ left: getStep(), behavior: 'smooth' });
+        });
+
+        track.addEventListener('scroll', updateButtonState, { passive: true });
+        window.addEventListener('resize', updateButtonState);
+        updateButtonState();
+      });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
