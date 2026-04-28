@@ -204,6 +204,10 @@
   .card-meta li::before { content: "·"; color: var(--ink-faint); }
   .card-link { font-family: var(--mono); font-size: 12px; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 4px; letter-spacing: 0.02em; }
   .card-link:hover { opacity: 0.7; }
+
+  .col-detay { display: none; }
+  .col-detay a { font-family: var(--mono); font-size: 11px; color: var(--accent); text-decoration: none; white-space: nowrap; }
+  .col-detay a:hover { opacity: 0.7; }
   
   .status-badge { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
   .status-active { background: #dcfce7; color: #16a34a; }
@@ -218,9 +222,18 @@
     .f-table .col-strateji { display: none; }
     .f-table th, .f-table td { padding: 0.65rem 0.6rem; font-size: 12px; }
     .f-table .val, .f-table .ret-pos, .f-table .ret-neg { font-size: 12px; }
-    .f-table .month-name { font-size: 13px; }
+    .f-table .month-name { font-size: 13px; white-space: nowrap; }
     /* h1 taşmasını düzelt */
     .finance-header h1 { white-space: normal; font-size: clamp(1.8rem, 7vw, 2.4rem); }
+    /* Section başlık ve alt yazı ortalama */
+    .section-title { text-align: center; }
+    .section-sub { text-align: center; }
+    /* Stats ortalama */
+    .stat-block { text-align: center; }
+    /* Detay sütunu sadece mobilde */
+    .col-detay { display: table-cell; }
+    /* Kartlar bölümünü gizle */
+    .cards-section { display: none; }
   }
 </style>
 
@@ -279,6 +292,7 @@
           <th>Ay Sonu Değeri</th>
           <th>Aylık Getiri</th>
           <th class="col-strateji">Strateji</th>
+          <th class="col-detay">Detay</th>
         </tr>
       </thead>
       <tbody>
@@ -287,30 +301,35 @@
           <td class="val">139.020,00 TL</td>
           <td class="ret-pos">+39,02%</td>
           <td class="col-strateji">Yüksek risk — Hisse Senedi Ağırlıklı</td>
+          <td class="col-detay"><a href="/finance/aralik-2025/">Gör →</a></td>
         </tr>
         <tr>
           <td class="month-name">Ocak 2026</td>
           <td class="val">176.213,28 TL</td>
           <td class="ret-pos">+26,59%</td>
           <td class="col-strateji">Yüksek risk — Yatırım Fonu Ağırlıklı</td>
+          <td class="col-detay"><a href="/finance/ocak-2026/">Gör →</a></td>
         </tr>
         <tr>
           <td class="month-name">Şubat 2026</td>
           <td class="val">195.256,21 TL</td>
           <td class="ret-pos">+10,75%</td>
           <td class="col-strateji">Orta risk — Kıymetli Madenler Ağırlıklı</td>
+          <td class="col-detay"><a href="/finance/subat-2026/">Gör →</a></td>
         </tr>
         <tr>
           <td class="month-name">Mart 2026</td>
           <td class="val">180.079,25 TL</td>
           <td class="ret-neg">−07,36%</td>
           <td class="col-strateji">Orta risk — Kıymetli Madenler Ağırlıklı</td>
+          <td class="col-detay"><a href="/finance/mart-2026/">Gör →</a></td>
         </tr>
         <tr>
           <td class="month-name">Nisan 2026</td>
           <td class="val">200.158,09 TL</td>
           <td class="ret-pos">+11,15%</td>
           <td class="col-strateji">Yüksek risk — Yatırım Fonu Ağırlıklı</td>
+          <td class="col-detay"><a href="/finance/nisan-2026/">Gör →</a></td>
         </tr>
       </tbody>
     </table>
