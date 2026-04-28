@@ -99,7 +99,7 @@
   }
   [data-theme="dark"] body { background: var(--surface); color: var(--ink); }
   [data-theme="dark"] nav { background: rgba(19,18,16,0.92); }
-  [data-theme="dark"] .nav-links { background: rgba(19,18,16,0.98); }
+  [data-theme="dark"] .nav-links { background: var(--surface); }
   [data-theme="dark"] .btn-primary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
   [data-theme="dark"] .edu-item { background: var(--surface-2); }
   [data-theme="dark"] .info-panel .link-row:hover { color: var(--accent); }
@@ -260,7 +260,12 @@
 </div>
 
 <script>
-  function toggleTheme() {
+  function toggleNav() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+    
+    document.querySelectorAll('.nav-links a').forEach(function(a) { a.addEventListener('click', function() { document.querySelector('.nav-links').classList.remove('open'); }); });
+    function toggleTheme() {
     const html = document.documentElement;
     const isDark = html.getAttribute('data-theme') === 'dark';
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
