@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Efe Bülbül — iOS Developer</title>
+<title>Efe Bülbül — Portföy Günlüğü</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -33,6 +33,7 @@
   #hero { padding-top: 11rem; padding-bottom: 7rem; }
   .eyebrow { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
   h1 { font-family: var(--serif); font-size: clamp(3rem, 4.5vw, 5rem); line-height: 1.06; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 1.75rem; }
+  .finance-header h1 { font-size: clamp(1.8rem, 3vw, 3rem); white-space: nowrap; }
   h1 em { font-style: italic; color: var(--accent); }
   .hero-bio { font-size: 17px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 2.5rem; }
   .btn-row { display: flex; gap: 1rem; }
@@ -149,18 +150,75 @@
   }
   .nav-logo-wrap { display: flex; align-items: center; gap: 0; text-decoration: none; }
   [data-theme="dark"] .nav-avatar { border-color: var(--line); filter: brightness(0.9); }
+
+  /* FINANCE PAGE */
+  .finance-header { padding-top: 10rem; padding-bottom: 4rem; border-bottom: 1px solid var(--line); }
+  .finance-header-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 3rem; }
+  .stat-block { padding: 2rem; border-right: 1px solid var(--line); }
+  .stat-block:last-child { border-right: none; }
+  .stat-label { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .stat-value { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.4rem); letter-spacing: -0.02em; color: var(--ink); }
+  .stat-value.positive { color: #16a34a; }
+  .stat-value.negative { color: #dc2626; }
+  [data-theme="dark"] .stat-value.positive { color: #4ade80; }
+  [data-theme="dark"] .stat-value.negative { color: #f87171; }
+  
+  .disclaimer { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-top: 1.5rem; letter-spacing: 0.02em; }
+  
+  /* TABLE */
+  .finance-table-section { padding: 5rem 0; border-bottom: 1px solid var(--line); }
+  .section-title { font-family: var(--serif); font-size: clamp(1.4rem, 2vw, 1.8rem); font-weight: 400; letter-spacing: -0.015em; margin-bottom: 0.5rem; }
+  .section-sub { font-size: 14px; color: var(--ink-muted); margin-bottom: 2.5rem; }
+  
+  .f-table { width: 100%; border-collapse: collapse; }
+  .f-table th { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1rem; border-bottom: 2px solid var(--line); text-align: left; }
+  .f-table td { padding: 1rem; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-muted); vertical-align: middle; }
+  .f-table tr:last-child td { border-bottom: none; }
+  .f-table .month-name { font-weight: 500; color: var(--ink); font-size: 14px; }
+  .f-table .val { font-family: var(--mono); font-size: 13px; }
+  .f-table .ret-pos { color: #16a34a; font-family: var(--mono); font-size: 13px; }
+  .f-table .ret-neg { color: #dc2626; font-family: var(--mono); font-size: 13px; }
+  [data-theme="dark"] .f-table .ret-pos { color: #4ade80; }
+  [data-theme="dark"] .f-table .ret-neg { color: #f87171; }
+  
+  /* CARDS */
+  .cards-section { padding: 5rem 0; }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0; }
+  .month-card { padding: 2rem; border: 1px solid var(--line); border-right: none; border-bottom: none; }
+  .cards-grid .month-card:nth-child(1) { border-left: 1px solid var(--line); }
+  .cards-grid { border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .card-month { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+  .card-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 1rem; }
+  .card-meta { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 1.5rem; }
+  .card-meta li { font-size: 13px; color: var(--ink-muted); display: flex; align-items: center; gap: 6px; }
+  .card-meta li::before { content: "·"; color: var(--ink-faint); }
+  .card-link { font-family: var(--mono); font-size: 12px; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 4px; letter-spacing: 0.02em; }
+  .card-link:hover { opacity: 0.7; }
+  
+  .status-badge { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
+  .status-active { background: #dcfce7; color: #16a34a; }
+  [data-theme="dark"] .status-active { background: #052e16; color: #4ade80; }
+  
+  @media (max-width: 768px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat-block { border-right: none; border-bottom: 1px solid var(--line); }
+    .stat-block:last-child { border-bottom: none; }
+    .cards-grid { grid-template-columns: 1fr; }
+  }
 </style>
+
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo nav-logo-wrap"><img src="data:image/jpeg;base64,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" alt="Efe" class="nav-avatar">efebulbul.com</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Ana Sayfa</a></li>
+    <li><a href="index.html">Ana Sayfa</a></li>
     <li><a href="experience.html">Deneyim</a></li>
     <li><a href="projects.html">Projeler</a></li>
     <li><a href="writing.html">Yazdıklarım</a></li>
-    <li><a href="finance.html">Finans</a></li>
+    <li><a href="finance.html" class="active">Finans</a></li>
   </ul>
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Temayı değiştir">
     <span class="icon-moon">☽</span>
@@ -168,82 +226,141 @@
   </button>
 </nav>
 
-<section id="hero">
+<section class="finance-header">
   <div class="container">
-    <div class="page-grid">
-      <div class="page-left">
-        <p class="eyebrow">Junior iOS Developer · İstanbul</p>
-        <a href="index.html" style="text-decoration:none; color:inherit; cursor:pointer;"><h1>Efe Bülbül<br><em>Junior iOS</em><br>Developer.</h1></a>
-        <p class="hero-bio">Swift ile iOS uygulamaları geliştiren, performans ve kullanıcı odaklılığı ön planda tutan bir MIS öğrencisiyim. Fikri çalışan ürüne dönüştürmek benim için en motive edici süreç.</p>
-        <div class="btn-row">
-          <a href="#contact" class="btn btn-primary">İletişim →</a>
-          <a href="https://efebulbul.com/Efe-Bulbul-CV.pdf" target="_blank" class="btn btn-ghost">CV İndir</a>
-        </div>
+    <div class="finance-header-inner">
+    <p class="eyebrow">Kişisel Günlük · Finans</p>
+    <h1>100.000 TL ile <em>Portföy</em> Takibi.</h1>
+    <p class="hero-bio">Sermaye piyasalarıyla ilgileniyor; portföy dağılımı, risk yönetimi ve performans ölçümü üzerine veri odaklı takipler yapıyorum. Bu süreç, yazılım geliştirmede benimsediğim analitik düşünce yapısını destekliyor.</p>
+    <p class="disclaimer">⚠ Bu sayfa yatırım tavsiyesi içermez. Tüm içerikler kişisel takip amaçlıdır.</p>
+    </div>
+    <div class="stats-grid" style="border:1px solid var(--line); margin-top:3rem;">
+      <div class="stat-block">
+        <div class="stat-label">Başlangıç Sermayesi</div>
+        <div class="stat-value">100.000 TL</div>
       </div>
-      <div class="page-panel">
-        <div class="panel-block">
-          <div class="panel-label">Konum</div>
-          <div class="panel-value">İstanbul, Türkiye</div>
-        </div>
-        <div class="panel-block">
-          <div class="panel-label">Odak</div>
-          <div class="panel-value">Swift · UIKit · SwiftUI<br>Firebase · MapKit</div>
-        </div>
-        <div class="panel-block">
-          <div class="panel-label">Şu An</div>
-          <div class="panel-value">Teknasyon</div>
-        </div>
+      <div class="stat-block">
+        <div class="stat-label">Güncel Değer</div>
+        <div class="stat-value">200.158,09 TL</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-label">Toplam Getiri</div>
+        <div class="stat-value positive">+100,16%</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<section class="finance-table-section">
   <div class="container">
-    <div class="page-grid">
-      <div class="page-left">
-        <span class="col-label">01 — Hakkımda</span>
-        <h2>Yetenekler</h2>
-        <p class="body-text">İstanbul Topkapı Üniversitesi'nde Yönetim Bilişim Sistemleri okuyorum. Yazılım ve iş dünyasını birleştiren bu alanda edindiğim bakış açısını, iOS geliştirme pratiğimle doğrudan buluşturuyorum.</p>
-        <p class="body-text">Temiz kod, düşünülmüş arayüz ve ölçülebilir sonuç — bir proje üzerinde çalışırken her zaman bu üç şeyi gözetiyorum. App Store'da yayınlanan uygulamalar geliştirdim ve bu süreci gerçek kullanıcı geri bildirimleriyle ilerlettim.</p>
-      </div>
-      <div class="info-panel">
-        <div class="info-row">
-          <span class="info-label">Teknolojiler</span>
-          <span class="info-val">Swift, UIKit, SwiftUI, Firebase, MapKit, REST API, HTML/CSS/JS</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Eğitim</span>
-          <span class="info-val">YBS — İstanbul Topkapı Üniversitesi<br>Bilgisayar Programcılığı — İstanbul Üniversitesi</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Diller</span>
-          <span class="info-val">Türkçe (Ana dil) · İngilizce (B2) · Arapça (A2)</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Şu An</span>
-          <span class="info-val">Teknasyon · iOS Developer Stajyeri</span>
-        </div>
-      </div>
-    </div>
+    <h2 class="section-title">Aylık Kayıtlar</h2>
+    <p class="section-sub">Her ayın 1'inde güncellenen portföy ve aylık performans özeti.</p>
+    <table class="f-table">
+      <thead>
+        <tr>
+          <th>Ay</th>
+          <th>Ay Sonu Değeri</th>
+          <th>Aylık Getiri</th>
+          <th>Strateji</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="month-name">Aralık 2025</td>
+          <td class="val">139.020,00 TL</td>
+          <td class="ret-pos">+39,02%</td>
+          <td>Yüksek risk — Hisse Senedi Ağırlıklı</td>
+        </tr>
+        <tr>
+          <td class="month-name">Ocak 2026</td>
+          <td class="val">176.213,28 TL</td>
+          <td class="ret-pos">+26,59%</td>
+          <td>Yüksek risk — Yatırım Fonu Ağırlıklı</td>
+        </tr>
+        <tr>
+          <td class="month-name">Şubat 2026</td>
+          <td class="val">195.256,21 TL</td>
+          <td class="ret-pos">+10,75%</td>
+          <td>Orta risk — Kıymetli Madenler Ağırlıklı</td>
+        </tr>
+        <tr>
+          <td class="month-name">Mart 2026</td>
+          <td class="val">180.079,25 TL</td>
+          <td class="ret-neg">−07,36%</td>
+          <td>Orta risk — Kıymetli Madenler Ağırlıklı</td>
+        </tr>
+        <tr>
+          <td class="month-name">Nisan 2026</td>
+          <td class="val">200.158,09 TL</td>
+          <td class="ret-pos">+11,15%</td>
+          <td>Yüksek risk — Yatırım Fonu Ağırlıklı</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section id="contact">
+<section class="cards-section">
   <div class="container">
-    <div class="page-grid">
-      <div class="page-left">
-        <span class="col-label">02 — İletişim</span>
-        <h2>İletişim</h2>
-        <p class="contact-intro">Proje, staj veya iş fırsatları için ulaşabilirsiniz. iOS geliştirme ve ürün odaklı projeler üzerine konuşmaktan memnuniyet duyarım.</p>
-        <a href="mailto:info@efebulbul.com" class="contact-email">info@efebulbul.com</a>
+    <h2 class="section-title">Detay Sayfaları</h2>
+    <p class="section-sub">Her aya ait dağılım ve performans raporu.</p>
+    <div class="cards-grid">
+
+      <div class="month-card">
+        <div class="card-month">Aralık 2025</div>
+        <span class="status-badge status-active">Güncel</span>
+        <div class="card-title">Dağılım &amp; Performans</div>
+        <ul class="card-meta">
+          <li>Veri tarihi: 28/12</li>
+          <li>Hisse Senedi Ağırlıklı</li>
+        </ul>
+        <a href="finance_aralik2025.html" class="card-link">Detayı Gör →</a>
       </div>
-      <div class="info-panel">
-        <a href="https://www.linkedin.com/in/efe-bulbul-562464237/" target="_blank" class="link-row">LinkedIn <span class="arr">↗</span></a>
-        <a href="https://github.com/efebulbul" target="_blank" class="link-row">GitHub <span class="arr">↗</span></a>
-        <a href="https://efebulbul.medium.com" target="_blank" class="link-row">Medium <span class="arr">↗</span></a>
-        <a href="https://efebulbul.com/Efe-Bulbul-CV.pdf" target="_blank" class="link-row">CV İndir <span class="arr">↗</span></a>
+
+      <div class="month-card">
+        <div class="card-month">Ocak 2026</div>
+        <span class="status-badge status-active">Güncel</span>
+        <div class="card-title">Dağılım &amp; Performans</div>
+        <ul class="card-meta">
+          <li>Veri tarihi: 30/01</li>
+          <li>Yatırım Fonu Ağırlıklı</li>
+        </ul>
+        <a href="finance_ocak2026.html" class="card-link">Detayı Gör →</a>
       </div>
+
+      <div class="month-card">
+        <div class="card-month">Şubat 2026</div>
+        <span class="status-badge status-active">Güncel</span>
+        <div class="card-title">Dağılım &amp; Performans</div>
+        <ul class="card-meta">
+          <li>Veri tarihi: 04/03</li>
+          <li>Kıymetli Madenler Ağırlıklı</li>
+        </ul>
+        <a href="finance_subat2026.html" class="card-link">Detayı Gör →</a>
+      </div>
+
+      <div class="month-card">
+        <div class="card-month">Mart 2026</div>
+        <span class="status-badge status-active">Güncel</span>
+        <div class="card-title">Dağılım &amp; Performans</div>
+        <ul class="card-meta">
+          <li>Veri tarihi: 04/04</li>
+          <li>Kıymetli Madenler Ağırlıklı</li>
+        </ul>
+        <a href="finance_mart2026.html" class="card-link">Detayı Gör →</a>
+      </div>
+
+      <div class="month-card">
+        <div class="card-month">Nisan 2026</div>
+        <span class="status-badge status-active">Güncel</span>
+        <div class="card-title">Dağılım &amp; Performans</div>
+        <ul class="card-meta">
+          <li>Veri tarihi: 28/04</li>
+          <li>Yatırım Fonu Ağırlıklı</li>
+        </ul>
+        <a href="finance_nisan2026.html" class="card-link">Detayı Gör →</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -251,7 +368,7 @@
 <div class="container">
   <footer>
     <p>© 2026 Efe Bülbül</p>
-    <p>İstanbul, Türkiye</p>
+    <p>Portföy Günlüğü — Yatırım tavsiyesi değildir.</p>
   </footer>
 </div>
 
@@ -262,7 +379,6 @@
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
   }
-  // On load, apply saved theme
   (function() {
     const saved = localStorage.getItem('theme') || 
       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');

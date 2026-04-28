@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Efe Bülbül — iOS Developer</title>
+<title>Yazdıklarım — Efe Bülbül</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -22,76 +22,36 @@
   .nav-links a { font-size: 13px; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); font-weight: 500; }
 
-  .container { width: 100%; padding: 0 4vw 0 12vw; }  section { padding: 7rem 0; border-bottom: 1px solid var(--line); }
-  section:last-of-type { border-bottom: none; }
+  .container { width: 100%; padding: 0 8vw; }
 
-  /* UNIFIED GRID */
-  .page-grid { display: grid; grid-template-columns: 55fr 45fr; gap: 0; align-items: start; }
-  .page-left { padding-right: 6rem; max-width: 100%; }
+  .page-header { padding: 9rem 0 5rem; border-bottom: 1px solid var(--line); }
+  .page-eyebrow { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+  h1 { font-family: var(--serif); font-size: clamp(2.4rem, 4vw, 3.6rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1rem; }
+  .page-desc { font-size: 15px; color: var(--ink-muted); line-height: 1.8; max-width: 520px; }
 
-  /* HERO */
-  #hero { padding-top: 11rem; padding-bottom: 7rem; }
-  .eyebrow { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
-  h1 { font-family: var(--serif); font-size: clamp(3rem, 4.5vw, 5rem); line-height: 1.06; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 1.75rem; }
-  h1 em { font-style: italic; color: var(--accent); }
-  .hero-bio { font-size: 17px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 2.5rem; }
-  .btn-row { display: flex; gap: 1rem; }
-  .btn { display: inline-flex; align-items: center; padding: 0.65rem 1.5rem; font-family: var(--sans); font-size: 13px; font-weight: 500; text-decoration: none; border-radius: 2px; transition: all 0.2s; }
-  .btn-primary { background: var(--ink); color: var(--surface); border: 1px solid var(--ink); }
-  .btn-primary:hover { background: #222; }
-  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-  .btn-ghost:hover { border-color: var(--ink); }
+  .content-section { padding: 5rem 0; }
 
+  .writing-item { display: grid; grid-template-columns: 120px 1fr 40px; gap: 4rem; align-items: start; padding: 2.5rem 0; border-top: 1px solid var(--line); text-decoration: none; color: inherit; transition: opacity 0.15s; }
+  .writing-item:last-child { border-bottom: 1px solid var(--line); }
+  .writing-item:hover { opacity: 0.7; }
+  .writing-date { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); padding-top: 3px; }
+  .writing-source { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+  .writing-title { font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; line-height: 1.4; }
+  .writing-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
+  .writing-arrow { font-size: 16px; color: var(--ink-faint); padding-top: 4px; }
 
-  /* SAĞ PANEL — hero için (konum/odak/şu an) */
-  .page-panel { padding-left: 4rem; display: flex; flex-direction: column; }
-  .panel-block { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
-  .panel-block:first-child { padding-top: 0; }
-  .panel-block:last-child { border-bottom: none; }
-  .panel-label { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-  .panel-value { font-size: 14px; color: var(--ink); line-height: 1.65; }
-  .social-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .social-list a { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 13px; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
-  .social-list a:hover { color: var(--ink); }
-  .social-list .arr { color: var(--ink-faint); }
-
-  /* SAĞ PANEL — about/contact için (görseldeki stil) */
-  .info-panel { padding-left: 4rem; display: flex; flex-direction: column; }
-  .info-panel .info-row { display: flex; flex-direction: column; padding: 1.25rem 0; border-top: 1px solid var(--line); }
-  .info-panel .info-row:last-child { border-bottom: 1px solid var(--line); }
-  .info-panel .info-label { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
-  .info-panel .info-val { font-size: 14px; color: var(--ink); line-height: 1.65; }
-  .info-panel .link-row { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; border-top: 1px solid var(--line); text-decoration: none; color: var(--ink); font-size: 14px; transition: color 0.2s; }
-  .info-panel .link-row:last-child { border-bottom: 1px solid var(--line); }
-  .info-panel .link-row:hover { color: var(--accent); }
-  .info-panel .link-row .arr { color: var(--ink-faint); font-size: 13px; }
-
-  /* ABOUT / CONTACT sol içerik */
-  .col-label { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 1rem; }
-  h2 { font-family: var(--serif); font-size: clamp(1.8rem, 2.5vw, 2.6rem); font-weight: 400; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 2rem; }
-  .body-text { font-size: 15px; color: var(--ink-muted); line-height: 1.85; margin-bottom: 1.25rem; }
-  .body-text:last-child { margin-bottom: 0; }
-  .contact-intro { font-size: 15px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 2rem; }
-  .contact-email { font-family: var(--serif); font-size: 1.75rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; border-bottom: 2px solid var(--accent); padding-bottom: 3px; transition: opacity 0.2s; display: inline-block; }
-  .contact-email:hover { opacity: 0.65; }
-
-  footer { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; }
+  footer { padding: 2.5rem 0; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); margin-top: 2rem; }
   footer p { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
 
   @media (max-width: 1024px) {
     nav { padding: 1.25rem 2rem; }
     .container { padding: 0 2rem; }
-    .page-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .page-left { max-width: 100%; }
-    .page-panel { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 2rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 3rem; }
-    .panel-block { border-bottom: 1px solid var(--line); }
+    .writing-item { grid-template-columns: 1fr; gap: 0.75rem; }
+    .writing-arrow { display: none; }
   }
   @media (max-width: 640px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { gap: 1.2rem; }
-    .container { padding: 0 1.5rem; }
-    h1 { font-size: 2.6rem; }
-    .page-panel { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 
@@ -138,6 +98,19 @@
   [data-theme="dark"] .exp-tag-blue { background: #1a2a4a; color: #4d8bf0; border-color: #2a3a6a; }
   [data-theme="dark"] .exp-tag-red  { background: #2a1f08; color: #f59e0b; border-color: #3d2e0f; }
 
+  .eyebrow-link { text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .eyebrow-link:hover { opacity: 0.7; }
+
+  .hero-photo {
+    width: 120px; height: 120px;
+    object-fit: cover; object-position: center top;
+    border-radius: 50%; display: block;
+    margin-bottom: 2rem;
+    border: 2px solid var(--line);
+    filter: grayscale(10%);
+  }
+  [data-theme="dark"] .hero-photo { filter: grayscale(15%) brightness(0.85); }
+
   .nav-avatar {
     width: 32px; height: 32px;
     border-radius: 50%;
@@ -156,10 +129,10 @@
 <nav>
   <a href="index.html" class="nav-logo nav-logo-wrap"><img src="data:image/jpeg;base64,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" alt="Efe" class="nav-avatar">efebulbul.com</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Ana Sayfa</a></li>
+    <li><a href="index.html">Ana Sayfa</a></li>
     <li><a href="experience.html">Deneyim</a></li>
     <li><a href="projects.html">Projeler</a></li>
-    <li><a href="writing.html">Yazdıklarım</a></li>
+    <li><a href="writing.html" class="active">Yazdıklarım</a></li>
     <li><a href="finance.html">Finans</a></li>
   </ul>
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Temayı değiştir">
@@ -168,85 +141,39 @@
   </button>
 </nav>
 
-<section id="hero">
+<div class="page-header">
   <div class="container">
-    <div class="page-grid">
-      <div class="page-left">
-        <p class="eyebrow">Junior iOS Developer · İstanbul</p>
-        <a href="index.html" style="text-decoration:none; color:inherit; cursor:pointer;"><h1>Efe Bülbül<br><em>Junior iOS</em><br>Developer.</h1></a>
-        <p class="hero-bio">Swift ile iOS uygulamaları geliştiren, performans ve kullanıcı odaklılığı ön planda tutan bir MIS öğrencisiyim. Fikri çalışan ürüne dönüştürmek benim için en motive edici süreç.</p>
-        <div class="btn-row">
-          <a href="#contact" class="btn btn-primary">İletişim →</a>
-          <a href="https://efebulbul.com/Efe-Bulbul-CV.pdf" target="_blank" class="btn btn-ghost">CV İndir</a>
-        </div>
-      </div>
-      <div class="page-panel">
-        <div class="panel-block">
-          <div class="panel-label">Konum</div>
-          <div class="panel-value">İstanbul, Türkiye</div>
-        </div>
-        <div class="panel-block">
-          <div class="panel-label">Odak</div>
-          <div class="panel-value">Swift · UIKit · SwiftUI<br>Firebase · MapKit</div>
-        </div>
-        <div class="panel-block">
-          <div class="panel-label">Şu An</div>
-          <div class="panel-value">Teknasyon</div>
-        </div>
-      </div>
-    </div>
+    <p class="page-eyebrow">Teknik Yazılar</p>
+    <h1>Yazdıklarım</h1>
+    <p class="page-desc">Geliştirirken öğrendiğim teknik bilgiler hakkında yazdığım medium yazılarım.</p>
   </div>
-</section>
+</div>
 
-<section id="about">
+<div class="content-section">
   <div class="container">
-    <div class="page-grid">
-      <div class="page-left">
-        <span class="col-label">01 — Hakkımda</span>
-        <h2>Yetenekler</h2>
-        <p class="body-text">İstanbul Topkapı Üniversitesi'nde Yönetim Bilişim Sistemleri okuyorum. Yazılım ve iş dünyasını birleştiren bu alanda edindiğim bakış açısını, iOS geliştirme pratiğimle doğrudan buluşturuyorum.</p>
-        <p class="body-text">Temiz kod, düşünülmüş arayüz ve ölçülebilir sonuç — bir proje üzerinde çalışırken her zaman bu üç şeyi gözetiyorum. App Store'da yayınlanan uygulamalar geliştirdim ve bu süreci gerçek kullanıcı geri bildirimleriyle ilerlettim.</p>
-      </div>
-      <div class="info-panel">
-        <div class="info-row">
-          <span class="info-label">Teknolojiler</span>
-          <span class="info-val">Swift, UIKit, SwiftUI, Firebase, MapKit, REST API, HTML/CSS/JS</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Eğitim</span>
-          <span class="info-val">YBS — İstanbul Topkapı Üniversitesi<br>Bilgisayar Programcılığı — İstanbul Üniversitesi</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Diller</span>
-          <span class="info-val">Türkçe (Ana dil) · İngilizce (B2) · Arapça (A2)</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Şu An</span>
-          <span class="info-val">Teknasyon · iOS Developer Stajyeri</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="contact">
-  <div class="container">
-    <div class="page-grid">
-      <div class="page-left">
-        <span class="col-label">02 — İletişim</span>
-        <h2>İletişim</h2>
-        <p class="contact-intro">Proje, staj veya iş fırsatları için ulaşabilirsiniz. iOS geliştirme ve ürün odaklı projeler üzerine konuşmaktan memnuniyet duyarım.</p>
-        <a href="mailto:info@efebulbul.com" class="contact-email">info@efebulbul.com</a>
+    <a href="https://efebulbul.medium.com/swift-ile-mapkit-üzerinde-ghost-runner-hayalet-koşucu-sistemi-oluşturmak-ac78f2d18023" target="_blank" class="writing-item">
+      <div class="writing-date">Mar 2026</div>
+      <div>
+        <div class="writing-source">Medium · Swift · MapKit</div>
+        <div class="writing-title">MapKit Üzerinde Ghost Runner Sistemi Nasıl Kurulur?</div>
+        <p class="writing-desc">Stride'ın en özgün özelliğini nasıl geliştirdiğimi anlattım: kullanıcının önceki koşusunu harita üzerinde bir hayalet olarak göstermek. MapKit koordinat yönetimi, zamanlama senkronizasyonu ve animasyon tekniklerini kapsayan teknik bir yazı.</p>
       </div>
-      <div class="info-panel">
-        <a href="https://www.linkedin.com/in/efe-bulbul-562464237/" target="_blank" class="link-row">LinkedIn <span class="arr">↗</span></a>
-        <a href="https://github.com/efebulbul" target="_blank" class="link-row">GitHub <span class="arr">↗</span></a>
-        <a href="https://efebulbul.medium.com" target="_blank" class="link-row">Medium <span class="arr">↗</span></a>
-        <a href="https://efebulbul.com/Efe-Bulbul-CV.pdf" target="_blank" class="link-row">CV İndir <span class="arr">↗</span></a>
+      <div class="writing-arrow">↗</div>
+    </a>
+
+    <a href="https://efebulbul.medium.com/swiftui-ve-realitykit-ile-apple-fitness-tarz%C4%B1-3d-rozet-sistemi-olu%C5%9Fturmak-faf141ec96d7" target="_blank" class="writing-item">
+      <div class="writing-date">Oca 2026</div>
+      <div>
+        <div class="writing-source">Medium · SwiftUI · RealityKit</div>
+        <div class="writing-title">SwiftUI ve RealityKit ile 3D Rozet Sistemi</div>
+        <p class="writing-desc">Blender'da modellediğim bronz, gümüş ve altın rozetleri RealityKit aracılığıyla iOS uygulamasına nasıl entegre ettiğimi anlattım. Apple Fitness'ın başarı sistemi gibi 3D içerikleri uygulamaya taşımak isteyenler için pratik bir rehber.</p>
       </div>
-    </div>
+      <div class="writing-arrow">↗</div>
+    </a>
+
   </div>
-</section>
+</div>
 
 <div class="container">
   <footer>
