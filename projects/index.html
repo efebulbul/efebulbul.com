@@ -81,8 +81,16 @@
   }
   @media (max-width: 640px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.2rem; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--surface); border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+    .nav-links.open { display: flex; }
+    .nav-links li { padding: 0.85rem 1.5rem; border-bottom: 1px solid var(--line); }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a { font-size: 15px; color: var(--ink); }
+    .hamburger { display: flex; }
+    .theme-toggle { margin-left: auto; }
     .container { padding: 0 1.5rem; }
+    .page-left { padding-right: 0; }
+    h1 { font-size: 2.6rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 
