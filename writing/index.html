@@ -19,6 +19,8 @@
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 8vw; background: rgba(250,250,248,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
   .nav-logo { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 22px; height: 15px; cursor: pointer; background: none; border: none; padding: 0; }
+  .hamburger span { display: block; height: 2px; background: var(--ink); border-radius: 2px; }
   .nav-links a { font-size: 13px; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); font-weight: 500; }
 
@@ -68,6 +70,7 @@
   }
   [data-theme="dark"] body { background: var(--surface); color: var(--ink); }
   [data-theme="dark"] nav { background: rgba(19,18,16,0.92); }
+  [data-theme="dark"] .nav-links { background: rgba(19,18,16,0.98); }
   [data-theme="dark"] .btn-primary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
   [data-theme="dark"] .edu-item { background: var(--surface-2); }
   [data-theme="dark"] .info-panel .link-row:hover { color: var(--accent); }
@@ -135,6 +138,7 @@
     <li><a href="/writing/" class="active">Yazdıklarım</a></li>
     <li><a href="/finance/">Finans</a></li>
   </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menü"><span></span><span></span><span></span></button>
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Temayı değiştir">
     <span class="icon-moon">☽</span>
     <span class="icon-sun">☀</span>
