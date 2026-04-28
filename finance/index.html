@@ -214,6 +214,13 @@
     .stat-block { border-right: none; border-bottom: 1px solid var(--line); }
     .stat-block:last-child { border-bottom: none; }
     .cards-grid { grid-template-columns: 1fr; }
+    /* Tablo mobil: strateji sütununu gizle, hücreleri küçült */
+    .f-table .col-strateji { display: none; }
+    .f-table th, .f-table td { padding: 0.65rem 0.6rem; font-size: 12px; }
+    .f-table .val, .f-table .ret-pos, .f-table .ret-neg { font-size: 12px; }
+    .f-table .month-name { font-size: 13px; }
+    /* h1 taşmasını düzelt */
+    .finance-header h1 { white-space: normal; font-size: clamp(1.8rem, 7vw, 2.4rem); }
   }
 </style>
 
@@ -271,7 +278,7 @@
           <th>Ay</th>
           <th>Ay Sonu Değeri</th>
           <th>Aylık Getiri</th>
-          <th>Strateji</th>
+          <th class="col-strateji">Strateji</th>
         </tr>
       </thead>
       <tbody>
@@ -279,31 +286,31 @@
           <td class="month-name">Aralık 2025</td>
           <td class="val">139.020,00 TL</td>
           <td class="ret-pos">+39,02%</td>
-          <td>Yüksek risk — Hisse Senedi Ağırlıklı</td>
+          <td class="col-strateji">Yüksek risk — Hisse Senedi Ağırlıklı</td>
         </tr>
         <tr>
           <td class="month-name">Ocak 2026</td>
           <td class="val">176.213,28 TL</td>
           <td class="ret-pos">+26,59%</td>
-          <td>Yüksek risk — Yatırım Fonu Ağırlıklı</td>
+          <td class="col-strateji">Yüksek risk — Yatırım Fonu Ağırlıklı</td>
         </tr>
         <tr>
           <td class="month-name">Şubat 2026</td>
           <td class="val">195.256,21 TL</td>
           <td class="ret-pos">+10,75%</td>
-          <td>Orta risk — Kıymetli Madenler Ağırlıklı</td>
+          <td class="col-strateji">Orta risk — Kıymetli Madenler Ağırlıklı</td>
         </tr>
         <tr>
           <td class="month-name">Mart 2026</td>
           <td class="val">180.079,25 TL</td>
           <td class="ret-neg">−07,36%</td>
-          <td>Orta risk — Kıymetli Madenler Ağırlıklı</td>
+          <td class="col-strateji">Orta risk — Kıymetli Madenler Ağırlıklı</td>
         </tr>
         <tr>
           <td class="month-name">Nisan 2026</td>
           <td class="val">200.158,09 TL</td>
           <td class="ret-pos">+11,15%</td>
-          <td>Yüksek risk — Yatırım Fonu Ağırlıklı</td>
+          <td class="col-strateji">Yüksek risk — Yatırım Fonu Ağırlıklı</td>
         </tr>
       </tbody>
     </table>
